@@ -1,23 +1,44 @@
-<%= link_to 'View Requests', '/requests' %>
-  <div class="container">
-    <h3>New Requests</h3>
-    <%= form_for(@request) do |f| %>
-    <div class="field">
-      <table>
-        <tr>
-          <td><%= f.label "Name" %></td>
-          <td><%= f.label "Pick-Up Location" %></td>
-          <td><%= f.label "Drop-Off Location" %></td>
-        </tr>
-        <tr>
-          <td><%= f.text_field :FirstName %></td>
-          <td><%= f.text_field :PULocation %></td>
-          <td><%= f.text_field :DOLocation %></td>
-        </tr>
-      </table>
-    </div>
-    <div class="actions">
-      <%= f.submit "Create" %>
-    </div>
-    <% end %>
+<div class="header">
+  <h3>New Requests</h3>
+  <div class="switch">
+  <%= link_to 'View Requests', '/requests' %>
   </div>
+</div>
+
+<body>
+<div class="container">
+  <%= form_for(@request) do |f| %>
+  <div class="field">
+    <table>
+      <tr>
+        <td><%= f.label "Student ID" %></td>
+        <td><%= f.label "First Name" %></td>
+        <td><%= f.label "Last Name" %></td>
+        <td><%= f.label "Email" %></td>
+      </tr>
+      <tr>
+        <td><%= f.text_field :StudentID %></td>
+        <td><%= f.text_field :FirstName %></td>
+        <td><%= f.text_field :LastName %></td>
+        <td><%= f.email_field :Email %></td>
+      </tr>
+      <tr>
+        <td><%= f.label "Pick-Up Location" %></td>
+        <td><%= f.label "Drop-Off Location" %></td>
+        <td><%= f.label "Pick-Up Date" %></td>
+        <td><%= f.label "Pick-Up Time" %></td>
+      </tr>
+      <tr>
+        <td><%= f.text_field :PULocation %></td>
+        <td><%= f.text_field :DOLocation %></td>
+        <td><%= f.date_field :PUDate %></td>
+        <td><%= f.time_field :PUTime %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+  <% end %>
+</div>
+</body>

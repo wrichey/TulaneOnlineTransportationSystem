@@ -1,21 +1,35 @@
-<h1>Submitted Requests</h1>
-
-<%= link_to 'New Message', "requests/new" %>
+<div class="header">
+  <h3>Submitted Requests</h3>
+  <div class="switch">
+  <%= link_to 'New Requests', 'requests/new' %>
+  </div>
+</div>
 
 <% @requests.each do |request| %> 
 <div> 
     <table border=.5>
         <tr>
             <th>Time Created</th>
-            <th>Name</th>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
             <th>Pick-Up Location</th>
             <th>Drop-Off Location</th>
+            <th>Pick-Up Date</th>
+            <th>Pick-Up Time</th>
         </tr>
         <tr>
-            <td><%= request.created_at %></td>    
+            <td><%= request.created_at %></td> 
+            <td><%= request.StudentID %></td>
             <td><%= request.FirstName %></td>
+            <td><%= request.LastName %></td>
+            <td><%= request.Email %></td>
             <td><%= request.PULocation %></td>
             <td><%= request.DOLocation %></td>
+            <td><%= request.PUDate %></td>
+            <td><%= request.PUTime %></td>
+
         </tr>
     </table>
 </div> 

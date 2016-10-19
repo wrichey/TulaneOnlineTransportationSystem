@@ -15,8 +15,13 @@ ActiveRecord::Schema.define(version: 20161005221409) do
 
   create_table "requests", force: :cascade do |t|
     t.text     "FirstName"
+    t.text     "LastName"
     t.text     "PULocation"
     t.text     "DOLocation"
+    t.text     "PUDate"
+    t.text     "PUTime"
+    t.text     "StudentID"
+    t.text     "Email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
