@@ -5,7 +5,6 @@
   </div>
 </div>
 
-<% @requests.each do |request| %> 
 <div> 
     <table border=.5>
         <tr>
@@ -19,6 +18,7 @@
             <th>Pick-Up Date</th>
             <th>Pick-Up Time</th>
         </tr>
+        <% @requests.each do |request| %>
         <tr>
             <td><%= request.created_at %></td> 
             <td><%= request.StudentID %></td>
@@ -29,8 +29,7 @@
             <td><%= request.DOLocation %></td>
             <td><%= request.PUDate %></td>
             <td><%= request.PUTime %></td>
-
         </tr>
+        <% end %>
     </table>
 </div> 
-<% end %>

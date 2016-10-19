@@ -1,0 +1,19 @@
+.header {
+  margin-bottom: 20px;
+}
+.header h3 {
+  position: relative;
+  display: inline;
+  left: 15px;
+}
+.switch {
+  float: right;
+  position: relative;
+  right:15px;
+}
+.container {
+  position:relative;
+  left: 15px;
+  right: 15px;
+  display: block;
+}
