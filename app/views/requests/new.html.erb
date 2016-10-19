@@ -1,6 +1,13 @@
 
-
-<%= form_tag("/requests/create") do %>
-        <%= text_field_tag(:fname, "Please enter your name") %>
-        <%= submit_tag %>
+  <div class="container">
+    
+    <%= form_for(@request) do |f| %>
+    <div class="field">
+      <%= f.label :requests %><br>
+      <%= f.text_field :FirstName %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create" %>
+    </div>
     <% end %>
+  </div>

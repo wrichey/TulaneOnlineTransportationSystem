@@ -1,3 +1,9 @@
-<h1>Testing</h1>
+<h1>Submitted Requests</h1>
 
 <%= link_to 'New Message', "requests/new" %>
+
+<% @requests.each do |request| %> 
+<div> 
+  <p><%= request.created_at %><%= request.FirstName %></p> 
+</div> 
+<% end %>

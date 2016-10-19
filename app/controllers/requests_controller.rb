@@ -7,18 +7,17 @@ class RequestsController < ApplicationController
        @request = Request.new
     end
     
-    def create
-       @request = Request.new(params[:request])
-       if @request.save
-           redirect_to @request
-       else
-           render "new"
-       end
-               
+    def create 
+        @request = Request.new(request_params) 
+        if @request.save 
+            redirect_to '/requests' 
+        else 
+            render 'new' 
+        end 
     end
     
     private
     def request_params
-        params.require(:request).permit(:fname)
+        params.require(:request).permit(:FirstName)
     end
 end
