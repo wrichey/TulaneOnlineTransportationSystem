@@ -1,10 +1,20 @@
-
+<%= link_to 'View Requests', '/requests' %>
   <div class="container">
-    
+    <h3>New Requests</h3>
     <%= form_for(@request) do |f| %>
     <div class="field">
-      <%= f.label :requests %><br>
-      <%= f.text_field :FirstName %>
+      <table>
+        <tr>
+          <td><%= f.label "Name" %></td>
+          <td><%= f.label "Pick-Up Location" %></td>
+          <td><%= f.label "Drop-Off Location" %></td>
+        </tr>
+        <tr>
+          <td><%= f.text_field :FirstName %></td>
+          <td><%= f.text_field :PULocation %></td>
+          <td><%= f.text_field :DOLocation %></td>
+        </tr>
+      </table>
     </div>
     <div class="actions">
       <%= f.submit "Create" %>

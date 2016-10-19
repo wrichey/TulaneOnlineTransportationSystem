@@ -4,6 +4,19 @@
 
 <% @requests.each do |request| %> 
 <div> 
-  <p><%= request.created_at %><%= request.FirstName %></p> 
+    <table border=.5>
+        <tr>
+            <th>Time Created</th>
+            <th>Name</th>
+            <th>Pick-Up Location</th>
+            <th>Drop-Off Location</th>
+        </tr>
+        <tr>
+            <td><%= request.created_at %></td>    
+            <td><%= request.FirstName %></td>
+            <td><%= request.PULocation %></td>
+            <td><%= request.DOLocation %></td>
+        </tr>
+    </table>
 </div> 
 <% end %>

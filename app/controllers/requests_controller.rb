@@ -18,6 +18,6 @@ class RequestsController < ApplicationController
     
     private
     def request_params
-        params.require(:request).permit(:FirstName)
+        params.require(:request).permit(:FirstName, :DOLocation, :PULocation)
     end
 end
