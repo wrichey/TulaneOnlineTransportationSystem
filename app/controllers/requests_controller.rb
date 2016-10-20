@@ -13,9 +13,17 @@ class RequestsController < ApplicationController
             redirect_to '/requests' 
         else 
             render 'new' 
-        end 
+        end
     end
-    
+   
+   def delete
+       
+   end
+   
+   def show
+       @request = Request.find(params[:id])
+   end
+   
     private
     def request_params
         params.require(:request).permit(:FirstName, :LastName, :DOLocation, :PULocation, :PUDate, :PUTime, :Email, :StudentID)

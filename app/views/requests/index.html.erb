@@ -20,6 +20,7 @@
         </tr>
         <% @requests.each do |request| %>
         <tr>
+            
             <td><%= request.created_at %></td> 
             <td><%= request.StudentID %></td>
             <td><%= request.FirstName %></td>
@@ -29,6 +30,7 @@
             <td><%= request.DOLocation %></td>
             <td><%= request.PUDate %></td>
             <td><%= request.PUTime %></td>
+            <td><a href=<%= requests_path %>/<%=request.id %>> <%="View Request"%></a></td>
         </tr>
         <% end %>
     </table>
