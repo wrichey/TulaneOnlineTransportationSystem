@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root 'requests#new'
   get '/requests' => 'requests#index'
  	get '/requests/new' => 'requests#new'
-  post 'requests' => 'requests#create'
+  post '/requests' => 'requests#create'
   get '/requests/:id' => 'requests#show'
+  #put '/requests/:id' => 'requests#update'
+  delete '/requests/:id' => 'requests#destroy'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

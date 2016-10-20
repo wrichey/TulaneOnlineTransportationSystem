@@ -17,7 +17,9 @@ class RequestsController < ApplicationController
     end
    
    def delete
-       
+       @request = Request.find(params[:id])
+       @request.destroy
+       redirect_to requests_path
    end
    
    def show
