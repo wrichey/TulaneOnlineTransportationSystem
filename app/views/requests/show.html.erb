@@ -1,0 +1,32 @@
+<div class="header">
+  <h3>Your Request for</h3>
+  <div class="switch">
+  <%= link_to 'New Requests', '/requests/new' %>
+  <%= link_to 'View Requests', '/requests' %>
+  </div>
+</div>
+    <table border=.5>
+        <tr>
+            <th>Time Created</th>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Pick-Up Location</th>
+            <th>Drop-Off Location</th>
+            <th>Pick-Up Date</th>
+            <th>Pick-Up Time</th>
+        </tr>
+        <tr>
+            
+            <td><%= @request.created_at %></td> 
+            <td><%= @request.StudentID %></td>
+            <td><%= @request.FirstName %></td>
+            <td><%= @request.LastName %></td>
+            <td><%= @request.Email %></td>
+            <td><%= @request.PULocation %></td>
+            <td><%= @request.DOLocation %></td>
+            <td><%= @request.PUDate %></td>
+            <td><%= @request.PUTime %></td>
+        </tr>
+    </table>
