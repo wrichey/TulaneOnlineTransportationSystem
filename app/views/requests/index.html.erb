@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div> 
+<div class = "containerTable"> 
     <table border=.5>
         <tr>
             <th>Time Created</th>
@@ -30,8 +30,12 @@
             <td><%= request.DOLocation %></td>
             <td><%= request.PUDate %></td>
             <td><%= request.PUTime %></td>
+<<<<<<< HEAD
             <td><%= link_to 'Show', request_path(request.id), :method => :GET %></td>
             <td><%= link_to 'Delete', request_path(request.id), :method => :DELETE %></td>
+=======
+            <td class="tableButton"><a href=<%= requests_path(@request) %>/<%=request.id %>> <%="View Request"%></a></td>
+>>>>>>> 2644564fce31c59f641f2150751affbf49f8c5ca
             
         </tr>
         <% end %>
