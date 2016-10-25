@@ -1,19 +1,58 @@
+body {
+  background-color: rgba(0,51,26,.95);
+  color:white;
+  position: relative;
+  font-family: arial;
+}
 .header {
+  margin:0px;
   margin-bottom: 20px;
+  vertical-align: middle;
+  background-color: rgba(1,1,1,.2);
+  padding:40px;
 }
 .header h3 {
   position: relative;
   display: inline;
-  left: 15px;
 }
 .switch {
+  padding: 2px;
+  background-color: white;
   float: right;
   position: relative;
   right:15px;
+  margin: 2px;
+}
+.indrequest {
+  padding: 2px;
+  background-color: white;
+  position: relative;
 }
 .container {
-  position:relative;
-  left: 15px;
-  right: 15px;
-  display: block;
+  padding: 40px;
+  background-color: rgba(1,1,1,.1);
+  position:absolute;
+  margin: 0px; 
+  left:50%;
+  transform: translate(-50%);
+}
+.containerTable {
+  padding: 40px;
+  background-color: rgba(1,1,1,.1);
+  position:absolute;
+  margin: 0px; 
+  width: 80%;
+  left:50%;
+  transform: translate(-50%);
+}
+.containerTable table {
+    border-color: WHITE;
+}
+.containerTable td {
+  font-size: 12px
+}
+
+.tableButton {
+  background-color: white;
+  text-align: center;
 }
