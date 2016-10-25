@@ -1,0 +1,9 @@
+
+            <td><a href=<%= requests_path(@request) %>/<%=request.id %>> <%="Delete Request"%></a></td>
+            <td><%= link_to 'Delete Request', requests_path(@request), :confirm => 'Are you sure?', :method => :POST %></td>
+            
+            <td><a href=<%= requests_path(@request) %>/<%=request.id %>> <%="View Request"%></a></td>
+            <td><%= link_to 'Show Request', requests_path(request.id), :method => :GET %></td>
+            <td><%= link_to 'Delete Request', requests_path(@request), :confirm => 'Are you sure?', :method => :POST %></td>
+            <td><%= link_to 'Delete Request', requests_path(@request), :confirm => 'Are you sure?', :method => :DELETE %></td>
+            
