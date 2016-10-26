@@ -9,6 +9,7 @@ class CreateRequests < ActiveRecord::Migration
       t.text :PUTime
       t.text :StudentID
       t.text :Email
+      t.text :status, :default => "Pending"
       t.timestamps null: false
     end
   end

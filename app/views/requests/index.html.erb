@@ -17,6 +17,7 @@
             <th>Drop-Off Location</th>
             <th>Pick-Up Date</th>
             <th>Pick-Up Time</th>
+            <th>Status</th>
         </tr>
         <% @requests.each do |request| %>
         <tr>
@@ -30,12 +31,9 @@
             <td><%= request.DOLocation %></td>
             <td><%= request.PUDate %></td>
             <td><%= request.PUTime %></td>
-<<<<<<< HEAD
+            <td><%= request.status %></td>
             <td><%= link_to 'Show', request_path(request.id), :method => :GET %></td>
             <td><%= link_to 'Delete', request_path(request.id), :method => :DELETE %></td>
-=======
-            <td class="tableButton"><a href=<%= requests_path(@request) %>/<%=request.id %>> <%="View Request"%></a></td>
->>>>>>> 2644564fce31c59f641f2150751affbf49f8c5ca
             
         </tr>
         <% end %>
