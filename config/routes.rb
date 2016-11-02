@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'requests#new'
   get '/requests' => 'requests#index'
  	get '/requests/new' => 'requests#new'
@@ -6,6 +7,11 @@ Rails.application.routes.draw do
   get '/requests/:id' => 'requests#show', as: 'request'
   #post '/requests/:id' => 'requests#update'
   delete '/requests/:id' => 'requests#delete'
+  
+  get   '/login', :to => 'sessions#new', :as => :login
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/failure', :to => 'sessions#failure'
+  get '/logout', :to => 'sessions#destroy'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -5,6 +5,7 @@
   </div>
 </div>
 
+
 <div class = "containerTable"> 
     <table border=.5>
         <tr>
@@ -31,14 +32,10 @@
             <td><%= request.DOLocation %></td>
             <td><%= request.PUDate %></td>
             <td><%= request.PUTime %></td>
-
-=======
             <td><%= request.status %></td>
             <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
             <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
             <!--<td><%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
->>>>>>> 51eba2e6571b47eaa51684f557b19490e7d4d324
-            
         </tr>
         <% end %>
     </table>
