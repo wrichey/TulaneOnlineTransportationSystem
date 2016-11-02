@@ -10,9 +10,12 @@ class RequestsController < ApplicationController
     def create 
         @request = Request.new(request_params) 
         if @request.save 
+            flash[:notice] = "Request submitted!"
             redirect_to '/requests' 
+            
         else 
-            render 'new' 
+            flash[:notice] = "Please submit all fields!"
+            render 'new'
         end
     end
    
@@ -25,6 +28,11 @@ class RequestsController < ApplicationController
    def show
        @request = Request.find(params[:id])
    end
+   
+   def update
+       @request = Request.find(params[:id])
+   end
+   
    
     private
     def request_params
