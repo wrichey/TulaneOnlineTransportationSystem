@@ -12,7 +12,6 @@ class RequestsController < ApplicationController
         if @request.save 
             flash[:notice] = "Request submitted!"
             redirect_to '/requests' 
-            
         else 
             flash[:notice] = "Please submit all fields!"
             render 'new'
@@ -33,9 +32,20 @@ class RequestsController < ApplicationController
        @request = Request.find(params[:id])
    end
    
+   def status
+      @request = Request.find(params[:id])
+      
+      Request.update(@request, :status => params[:status])
+      
+      puts '\n\n\n\n'
+      puts @request.status
+      redirect_to '/requests'
+   end
+   
    
     private
     def request_params
-        params.require(:request).permit(:FirstName, :LastName, :DOLocation, :PULocation, :PUDate, :PUTime, :Email, :StudentID)
+        params.require(:request).permit(:FirstName, :LastName, :DOLocation, :PULocation, :PUDate, :PUTime, :Email, :StudentID, :status
+        )
     end
 end
