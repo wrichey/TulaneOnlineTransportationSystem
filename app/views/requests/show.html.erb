@@ -1,5 +1,5 @@
 <div class="header">
-    <h3>Your Request for</h3>
+    <h3>Your Request</h3>
     <div class="switch">
       <%= link_to 'New Requests', '/requests/new' %>
     </div>
@@ -19,6 +19,7 @@
             <th>Drop-Off Location</th>
             <th>Pick-Up Date</th>
             <th>Pick-Up Time</th>
+            <th>Status</th>
         </tr>
         <tr>
             
@@ -31,6 +32,7 @@
             <td><%= @request.DOLocation %></td>
             <td><%= @request.PUDate %></td>
             <td><%= @request.PUTime %></td>
+            <td><%= @request.status %></td>
         </tr>
     </table>
 </div>

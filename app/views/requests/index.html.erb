@@ -17,6 +17,7 @@
             <th>Drop-Off Location</th>
             <th>Pick-Up Date</th>
             <th>Pick-Up Time</th>
+            <th>Status</th>
         </tr>
         <% @requests.each do |request| %>
         <tr>
@@ -30,10 +31,13 @@
             <td><%= request.DOLocation %></td>
             <td><%= request.PUDate %></td>
             <td><%= request.PUTime %></td>
-            <td><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
-            <td><%= link_to 'Delete', request_path(request.id), :method => :DELETE %></td> 
-            <!--<td><%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
 
+=======
+            <td><%= request.status %></td>
+            <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
+            <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
+            <!--<td><%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
+>>>>>>> 51eba2e6571b47eaa51684f557b19490e7d4d324
             
         </tr>
         <% end %>

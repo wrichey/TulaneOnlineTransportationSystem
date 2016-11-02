@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20161005221409) do
     t.text     "PUTime"
     t.text     "StudentID"
     t.text     "Email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "status",     default: "Pending"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end
