@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete '/requests/:id' => 'requests#delete'
   
   get   '/login', :to => 'sessions#new', :as => :login
-  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/:provider/callback', :to => 'requests#new'
   get '/auth/failure', :to => 'sessions#failure'
   get '/logout', :to => 'sessions#destroy'
   

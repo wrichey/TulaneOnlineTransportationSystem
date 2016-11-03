@@ -1,0 +1,44 @@
+<div class="header">
+  <h3>New Requests</h3>
+  <div class="switch">
+  <%= link_to 'View Requests', '/requests' %>
+  </div>
+</div>
+
+<body>
+<div class="container">
+  <%= form_for(@request) do |f| %>
+  <div class="field">
+    <table>
+      <tr>
+        <td><%= f.label :StudentID, "Student ID" %></td>
+        <td><%= f.label :FirstName, "First Name" %></td>
+        <td><%= f.label :LastName, "Last Name" %></td>
+        <td><%= f.label :Email, "Email" %></td>
+      </tr>
+      <tr>
+        <td><%= f.text_field :StudentID %></td>
+        <td><%= f.text_field :FirstName %></td>
+        <td><%= f.text_field :LastName %></td>
+        <td><%= f.email_field :Email %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :DOLocation, "Pick-Up Location" %></td>
+        <td><%= f.label :PULocation, "Drop-Off Location" %></td>
+        <td><%= f.label :PUDate, "Pick-Up Date" %></td>
+        <td><%= f.label :PUTime, "Pick-Up Time" %></td>
+      </tr>
+      <tr>
+        <td><%= f.text_field :PULocation %></td>
+        <td><%= f.text_field :DOLocation %></td>
+        <td><%= f.date_field :PUDate %></td>
+        <td><%= f.time_field :PUTime %></td>     
+      </tr>
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+  <% end %>
+</div>
+</body>
