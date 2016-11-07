@@ -1,14 +1,15 @@
 <div class="header">
   <h3>Submitted Requests</h3>
   <div class="switch">
-  <%= link_to 'New Requests', 'requests/new' %>
+  <%= button_to 'New Requests', 'requests/new',:method => "get" %>
   </div>
 </div>
 
 
 <div class = "containerTable"> 
-    <table border=.5>
-        <tr>
+<div class="caption">View All Requests</div>
+    <table id="table" border=.5>
+        <tr class="header-row">
             <th>Time Created</th>
             <th>Student ID</th>
             <th>First Name</th>
@@ -21,7 +22,7 @@
             <th>Status</th>
         </tr>
         <% @requests.each do |request| %>
-        <tr>
+        <tr class="row">
             
             <td><%= request.created_at %></td> 
             <td><%= request.StudentID %></td>

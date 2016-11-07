@@ -18,11 +18,11 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    #render :text => "Sorry, but you didn't allow access to our app!"
+    render :text => "Sorry, but you didn't allow access to our app!"
   end
   
   def destroy
     session[:user_id] = nil
-    #render :text => "You've logged out!"
+    render :text => "You've logged out!"
   end
 end

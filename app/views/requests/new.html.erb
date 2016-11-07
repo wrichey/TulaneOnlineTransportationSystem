@@ -1,38 +1,37 @@
 <div class="header">
   <h3>New Requests</h3>
-  <div class="switch">
-  <%= link_to 'View Requests', '/requests' %>
+  <div>
+  <%= button_to 'View Requests', '/requests',:method => "get" %>
+  <%= button_to "Connect With Facebook", "/auth/facebook",:method => "get" %>
   </div>
 </div>
 
-<div>
-    <%= link_to "Connect With Facebook", "/auth/facebook" %>
-</div>
 
 <body>
 <div class="container">
+  <div class="caption">Create a New Request</div>
   <%= form_for(@request) do |f| %>
   <div class="field">
-    <table>
-      <tr>
+    <table id="table">
+      <tr class="header-row">
         <td><%= f.label :StudentID, "Student ID" %></td>
         <td><%= f.label :FirstName, "First Name" %></td>
         <td><%= f.label :LastName, "Last Name" %></td>
         <td><%= f.label :Email, "Email" %></td>
       </tr>
-      <tr>
+      <tr class="row">
         <td><%= f.text_field :StudentID %></td>
         <td><%= f.text_field :FirstName %></td>
         <td><%= f.text_field :LastName %></td>
         <td><%= f.email_field :Email %></td>
       </tr>
-      <tr>
+      <tr class="header-row">
         <td><%= f.label :DOLocation, "Pick-Up Location" %></td>
         <td><%= f.label :PULocation, "Drop-Off Location" %></td>
         <td><%= f.label :PUDate, "Pick-Up Date" %></td>
         <td><%= f.label :PUTime, "Pick-Up Time" %></td>
       </tr>
-      <tr>
+      <tr class="row">
         <td><%= f.text_field :PULocation %></td>
         <td><%= f.text_field :DOLocation %></td>
         <td><%= f.date_field :PUDate %></td>
