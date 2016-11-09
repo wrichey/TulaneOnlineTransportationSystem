@@ -36,14 +36,25 @@
 
 
             <td><%= request.status %></td>
-            <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
-            <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
             <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
             <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
+<<<<<<< HEAD
+            <!--<%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
+=======
             <!--<td><%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
 
 
+>>>>>>> cfd45f848c3092820071b7078c172ff705a6fa46
             
+            <% if request.status == "Pending"%>
+                <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+                <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+            <% elsif request.status == "Accepted"%>
+                <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+            <% elsif request.status == "Denied"%>
+                <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+            <% end %> 
+
         </tr>
         <% end %>
     </table>

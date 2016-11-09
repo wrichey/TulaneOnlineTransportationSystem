@@ -7,3 +7,21 @@
             <td><%= link_to 'Delete Request', requests_path(@request), :confirm => 'Are you sure?', :method => :POST %></td>
             <td><%= link_to 'Delete Request', requests_path(@request), :confirm => 'Are you sure?', :method => :DELETE %></td>
             
+            <!--
+            <%= if @request.status == "Pending" %>
+                <td><%= link_to 'Accept', request_path(@request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+                <td><%= link_to 'Deny', request_path(@request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+            <%= elsif @request.status == "Accpeted" %>
+                <td><%= link_to 'Deny', request_path(@request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+            <%= elsif @request.status == "Denied" %>
+                <td><%= link_to 'Accept', request_path(@request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+            <%= end %> -->
+            
+            <%= if request.status == "Pending"%>
+                <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+                <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+            <%= elsif request.status == "Accpeted"%>
+                <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+            <%= elsif request.status == "Denied"%>
+                <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+            <%= end %> 
