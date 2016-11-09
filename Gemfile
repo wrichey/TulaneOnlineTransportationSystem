@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.3'
 gem 'omniauth'
 gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -61,4 +61,5 @@ group :test do
   gem 'database_cleaner' #to clear Cucumber's test database between runs
   gem 'capybara' #lets Cucumber pretend to be a web browser
   gem 'launchy' #a useful debugging aid for user stories
+  gem 'guard-rspec'
 end
