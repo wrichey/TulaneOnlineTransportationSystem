@@ -32,8 +32,8 @@
         <td><%= f.label :PUTime, "Pick-Up Time" %></td>
       </tr>
       <tr class="row">
-        <td><%= collection_select(:location, :id, Location.all, :id, :name)%></td>
-        <td><%= f.text_field :DOLocation %></td>
+        <td><%= f.select :PULocation, options_for_select(Location.all.map{|l| l.name}) %></td>
+        <td><%= f.select :DOLocation, options_for_select(Location.all.map{|l| l.name}) %></td>
         <td><%= f.date_field :PUDate %></td>
         <td><%= f.time_field :PUTime %></td>   
       </tr>

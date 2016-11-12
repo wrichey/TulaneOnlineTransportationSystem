@@ -10,6 +10,7 @@ class RequestsController < ApplicationController
     
     def create 
         @request = Request.new(request_params) 
+        
         if @request.save 
             flash[:notice] = "Request submitted!"
             redirect_to '/requests' 
