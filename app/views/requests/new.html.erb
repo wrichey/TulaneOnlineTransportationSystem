@@ -13,7 +13,7 @@
   <%= form_for(@request) do |f| %>
   <div class="field">
     <table id="table">
-      <tr class="header-row">
+    <tr class="header-row">
         <td><%= f.label :StudentID, "Student ID" %></td>
         <td><%= f.label :FirstName, "First Name" %></td>
         <td><%= f.label :LastName, "Last Name" %></td>
@@ -32,10 +32,10 @@
         <td><%= f.label :PUTime, "Pick-Up Time" %></td>
       </tr>
       <tr class="row">
-        <td><%= f.text_field :PULocation %></td>
+        <td><%= collection_select(:location, :id, Location.all, :id, :name)%></td>
         <td><%= f.text_field :DOLocation %></td>
         <td><%= f.date_field :PUDate %></td>
-        <td><%= f.time_field :PUTime %></td>     
+        <td><%= f.time_field :PUTime %></td>   
       </tr>
     </table>
   </div>

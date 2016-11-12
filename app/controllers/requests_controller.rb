@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+   @alllocations = Location.all
     def index 
         @requests = Request.all
     end
