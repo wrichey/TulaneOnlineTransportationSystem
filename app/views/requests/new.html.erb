@@ -32,8 +32,8 @@
         <td><%= f.label :PUTime, "Pick-Up Time" %></td>
       </tr>
       <tr class="row">
-        <td><%= f.select :PULocation, options_for_select(Location.all.map{|l| l.name}) %></td>
-        <td><%= f.select :DOLocation, options_for_select(Location.all.map{|l| l.name}) %></td>
+        <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.name}) %></td>
+        <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.name}) %></td>
         <td><%= f.date_field :PUDate %></td>
         <td><%= f.time_field :PUTime %></td>   
       </tr>

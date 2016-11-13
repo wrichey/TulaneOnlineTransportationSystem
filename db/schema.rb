@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20161112200650) do
   create_table "locations", force: :cascade do |t|
     t.text     "name"
     t.text     "address"
+    t.text     "locationType"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
