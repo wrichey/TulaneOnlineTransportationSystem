@@ -9,8 +9,12 @@
 <body>
   
 <script>
-  function myFunction() {
+  function alertEmpty() {
     alert("You must complete all fields!");
+  }
+  
+  function alertDate() {
+    alert("You cannot select a date in the past!")
   }
 </script>
   
@@ -48,8 +52,10 @@
         <td><%= f.time_field :DepartureTime %></td>      
       </tr>
     </table>
-    <% if @request.errors.any? %>
-      <%= javascript_tag "myFunction()" %>
+    <% if @request.errors.include? :date %>
+      <%= javascript_tag "alertDate()" %>
+    <% elsif @request.errors.any? %>
+      <%= javascript_tag "alertEmpty()" %>
     <% end %>
   </div>
   <div class="actions">
