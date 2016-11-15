@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20161112200650) do
     t.string   "name"
     t.string   "email"
     t.integer  "stud_id"
-    t.integer  "user_type"
+    t.text     "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
