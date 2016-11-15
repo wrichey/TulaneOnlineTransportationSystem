@@ -35,12 +35,13 @@ ActiveRecord::Schema.define(version: 20161112200650) do
     t.text     "PULocation"
     t.text     "DOLocation"
     t.text     "PUDate"
-    t.text     "PUTime"
+    t.text     "ArrivalTime"
+    t.text     "DepartureTime"
     t.text     "StudentID"
     t.text     "Email"
-    t.text     "status",     default: "Pending"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.text     "status",        default: "Pending"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "users", force: :cascade do |t|
