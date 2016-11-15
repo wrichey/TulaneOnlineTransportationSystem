@@ -17,8 +17,9 @@
             <th>Email</th>
             <th>Pick-Up Location</th>
             <th>Drop-Off Location</th>
-            <th>Pick-Up Date</th>
-            <th>Pick-Up Time</th>
+            <th>Date for Request</th>
+            <th>Arrival Time</th>
+            <th>Departure Time</th>
             <th>Status</th>
         </tr>
         <% @requests.each do |request| %>
@@ -29,13 +30,13 @@
             <td><%= request.FirstName %></td>
             <td><%= request.LastName %></td>
             <td><%= request.Email %></td>
+            <td><%= request.PUDate %></td>
             <td><%= request.PULocation %></td>
             <td><%= request.DOLocation %></td>
-            <td><%= request.PUDate %></td>
-            <td><%= request.PUTime %></td>
-
-
+            <td><%= request.ArrivalTime %></td>
+            <td><%= request.DepartureTime %></td>
             <td><%= request.status %></td>
+            
             <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
             <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
             <!--<%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->

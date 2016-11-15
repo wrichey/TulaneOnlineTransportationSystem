@@ -46,7 +46,7 @@ class RequestsController < ApplicationController
    
     private
     def request_params
-        params.require(:request).permit(:FirstName, :LastName, :DOLocation, :PULocation, :PUDate, :PUTime, :Email, :StudentID, :status
+        params.require(:request).permit(:FirstName, :LastName, :DOLocation, :PULocation, :PUDate, :ArrivalTime, :DepartureTime, :Email, :StudentID, :status
         )
     end
 end
