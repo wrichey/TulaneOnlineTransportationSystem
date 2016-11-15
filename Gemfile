@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 ruby '2.3'
+#Dashboard Gem
+
+#Facebook Login
 gem 'omniauth'
 gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
