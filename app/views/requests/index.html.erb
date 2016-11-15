@@ -7,7 +7,7 @@
 
 
 <div class = "containerTable"> 
-<div class="caption">View All Requests</div>
+    <div class="caption">View All Requests</div>
     <table id="table" border=.5>
         <tr class="header-row">
             <th>Time Created</th>
@@ -38,13 +38,7 @@
             <td><%= request.status %></td>
             <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
             <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
-<<<<<<< HEAD
             <!--<%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
-=======
-            <!--<td><%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
-
-
->>>>>>> cfd45f848c3092820071b7078c172ff705a6fa46
             
             <% if request.status == "Pending"%>
                 <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>

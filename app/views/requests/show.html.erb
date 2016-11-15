@@ -1,15 +1,16 @@
 <div class="header">
     <h3>Your Request</h3>
     <div class="switch">
-      <%= link_to 'New Requests', '/requests/new' %>
+        <%= button_to 'New Requests', '/requests/new',:method => "get" %>
     </div>
     <div class="switch">
-      <%= link_to 'View Requests', '/requests' %>
-  </div>
+        <%= button_to 'View Requests', '/requests',:method => "get" %>
+    </div>
 </div>
 <div class = "containerTable"> 
-    <table border=.5>
-        <tr>
+    <div class="caption">View Individual Requests</div>
+    <table id="table" border=.5>
+        <tr class="header-row">
             <th>Time Created</th>
             <th>Student ID</th>
             <th>First Name</th>
@@ -21,7 +22,7 @@
             <th>Pick-Up Time</th>
             <th>Status</th>
         </tr>
-        <tr>
+        <tr class="row">
             
             <td><%= @request.created_at %></td> 
             <td><%= @request.StudentID %></td>
