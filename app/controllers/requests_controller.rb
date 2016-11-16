@@ -35,11 +35,7 @@ class RequestsController < ApplicationController
    
    def status
       @request = Request.find(params[:id])
-      
       Request.update(@request, :status => params[:status])
-      
-      puts '\n\n\n\n'
-      puts @request.status
       redirect_to '/requests'
    end
    
