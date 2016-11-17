@@ -2,12 +2,16 @@
   <h3>Submitted Requests</h3>
   <div class="switch">
   <%= button_to 'New Requests', 'requests/new',:method => "get" %>
+<<<<<<< HEAD
   <% if current_user %>
       <div>Signed in as <strong><%= current_user.name %></strong>!</div>
       <%= link_to 'Sign Out', signout_path, id: 'signout'%>
   <% else %>
       <%= link_to 'Sign in with Facebook', 'auth/facebook', id: 'sign_in' %>
   <% end %>
+=======
+  <%= button_to 'View Locations', 'locations' , :method => "get"%>
+>>>>>>> 8e5dab8eef2017dc7d8f9b44fd1b0c5920490e78
   </div>
 </div>
 
@@ -35,9 +39,9 @@
             <td><%= request.FirstName %></td>
             <td><%= request.LastName %></td>
             <td><%= request.Email %></td>
-            <td><%= request.PUDate %></td>
             <td><%= request.PULocation %></td>
             <td><%= request.DOLocation %></td>
+            <td><%= request.PUDate %></td>
             <td><%= request.ArrivalTime %></td>
             <td><%= request.DepartureTime %></td>
             <td><%= request.status %></td>

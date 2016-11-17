@@ -1,0 +1,29 @@
+<div class="header">
+  <h3>All Locations</h3>
+  <div class="switch">
+  <%= button_to 'New Requests', 'requests/new',:method => "get" %>
+  <%= button_to 'New Locations', 'locations/new' ,:method => "get"%>
+  </div>
+</div>
+
+
+<div class = "containerTable"> 
+    <div class="caption">View All Requests</div>
+    <table id="table" border=.5>
+        <tr class="header-row">
+            <th>Time Created</th>
+            <th>Site Name</th>
+            <th>Address</th>
+            <th>Location Type</th>
+        </tr>
+        <% @locations.each do |location| %>
+        <tr class="row">
+            
+            <td><%= location.created_at %></td> 
+            <td><%= location.name %></td>
+            <td><%= location.address %></td>
+            <td><%= location.locationType %></td>
+        </tr>
+        <% end %>
+    </table>
+</div> 
