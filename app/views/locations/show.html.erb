@@ -1,0 +1,32 @@
+<div class="header">
+    <h3>Show Location</h3>
+    <div class="switch">
+        <%= button_to 'New Location', '/locations/new',:method => "get" %>
+    </div>
+    <div class="switch">
+        <%= button_to 'View Locations', '/locations',:method => "get" %>
+    </div>
+</div>
+
+<div class = "containerTable"> 
+    <div class="caption">View Individual Location</div>
+    <table id="table" border=.5>
+        <tr class="header-row">
+            <th>Location Name</th>
+            <th>Location Address</th>
+            <th>Location Type</th>
+        </tr>
+        <tr class="row">
+            
+            <td><%= @location.name %></td> 
+            <td><%= @location.address %></td>
+            <td><%= @location.locationType %></td>
+            <td class="tableButton"><%= link_to 'Delete', location_path(@location.id), :method => :DELETE  %></td>
+            
+            
+            
+        </tr>
+    </table>
+</div>
+    
+

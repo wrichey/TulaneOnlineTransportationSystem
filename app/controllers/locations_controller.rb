@@ -20,13 +20,13 @@ class LocationsController < ApplicationController
     end
 
     def show
-       @request = Request.find(params[:id])
+       @location = Location.find(params[:id])
     end
     
     def delete
        @location = Location.find(params[:id])
        @location.destroy
-       redirect_to requests_path
+       redirect_to locations_path
     end
     
     private

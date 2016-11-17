@@ -16,6 +16,8 @@
             <th>Address</th>
             <th>Location Type</th>
         </tr>
+        
+        
         <% @locations.each do |location| %>
         <tr class="row">
             
@@ -23,7 +25,10 @@
             <td><%= location.name %></td>
             <td><%= location.address %></td>
             <td><%= location.locationType %></td>
+            <td class="tableButton"><%= link_to 'Show', location_path(location.id), :method => :GET , :id => "Show"%></td>
+            <td class="tableButton"><%= link_to 'Delete', location_path(location.id), :method => :DELETE  %></td>
         </tr>
+        
         <% end %>
     </table>
 </div> 
