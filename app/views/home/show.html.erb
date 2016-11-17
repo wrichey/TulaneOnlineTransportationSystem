@@ -1,2 +1,12 @@
-<h1>Home#show</h1>
-<p>Find me in app/views/home/show.html.erb</p>
+<div class="header">
+  <h3>Welcome to TOTS!</h3>
+  <div class="switch">
+  
+  <% if current_user %>
+      <div>Signed in as <strong><%= current_user.name %></strong>!</div>
+      <%= button_to 'Sign Out', '/logout', id: 'signout',:method => "get"%>
+  <% else %>
+      <%= button_to 'Sign in with Facebook', 'auth/facebook', id: 'sign_in',:method => "get" %>
+  <% end %>
+  </div>
+</div>

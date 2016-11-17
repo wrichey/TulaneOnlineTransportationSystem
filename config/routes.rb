@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  root 'requests#index'
+  root 'home#show'
+  get   '/login', :to => 'sessions#login', :as => :login
+  get '/update' => 'home#update'
+  patch '/update.:id' => 'home#create'
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/sessions/new' => 'sessions#new'
+  get '/auth/failure', :to => 'sessions#failure'
+  get '/logout', :to => 'sessions#destroy'
+  
+  
+  
+  
   get '/requests' => 'requests#index'
  	get '/requests/new' => 'requests#new'
   post '/requests' => 'requests#create'
@@ -18,6 +25,7 @@ Rails.application.routes.draw do
   post '/locations' => 'locations#create'
   get '/locations/:id' => 'locations#show', as: 'location'
   delete '/locations/:id' => 'locations#delete'
+  
   
   
   # The priority is based upon order of creation: first created -> highest priority.

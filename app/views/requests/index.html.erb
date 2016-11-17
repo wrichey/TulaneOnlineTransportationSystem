@@ -1,17 +1,15 @@
 <div class="header">
   <h3>Submitted Requests</h3>
   <div class="switch">
-  <%= button_to 'New Requests', 'requests/new',:method => "get" %>
-<<<<<<< HEAD
+  
   <% if current_user %>
       <div>Signed in as <strong><%= current_user.name %></strong>!</div>
-      <%= link_to 'Sign Out', signout_path, id: 'signout'%>
+      <%= button_to 'Sign Out', '/logout', id: 'signout',:method => "get"%>
   <% else %>
-      <%= link_to 'Sign in with Facebook', 'auth/facebook', id: 'sign_in' %>
+      <%= button_to 'Sign in with Facebook', 'auth/facebook', id: 'sign_in',:method => "get" %>
   <% end %>
-=======
   <%= button_to 'View Locations', 'locations' , :method => "get"%>
->>>>>>> 8e5dab8eef2017dc7d8f9b44fd1b0c5920490e78
+  <%= button_to 'New Requests', 'requests/new',:method => "get" %>
   </div>
 </div>
 
