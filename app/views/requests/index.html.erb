@@ -2,6 +2,7 @@
   <h3>Submitted Requests</h3>
   <div class="switch">
   <%= button_to 'New Requests', 'requests/new',:method => "get" %>
+  <%= button_to 'View Locations', 'locations' , :method => "get"%>
   </div>
 </div>
 
@@ -30,9 +31,9 @@
             <td><%= request.FirstName %></td>
             <td><%= request.LastName %></td>
             <td><%= request.Email %></td>
-            <td><%= request.PUDate %></td>
             <td><%= request.PULocation %></td>
             <td><%= request.DOLocation %></td>
+            <td><%= request.PUDate %></td>
             <td><%= request.ArrivalTime %></td>
             <td><%= request.DepartureTime %></td>
             <td><%= request.status %></td>

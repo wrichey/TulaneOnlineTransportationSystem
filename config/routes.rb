@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   #post '/requests/:id' => 'requests#update'
   delete '/requests/:id' => 'requests#delete'
   
+  get '/locations' => 'locations#index'
+ 	get '/locations/new' => 'locations#new'
+  post '/locations' => 'locations#create'
+  get '/locations/:id' => 'locations#show', as: 'location'
+  delete '/locations/:id' => 'locations#delete'
   
   
   # The priority is based upon order of creation: first created -> highest priority.

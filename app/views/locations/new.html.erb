@@ -1,0 +1,46 @@
+<div class="header">
+  <h3>Add New Location</h3>
+  <div>
+  <%= button_to 'View Locations', '/locations',:method => "get" %>
+  </div>
+</div>
+
+<body>
+  
+<script>
+  function alertEmpty() {
+    alert("You must complete all fields!");
+  }
+</script>
+  
+<div class="container">
+  <div class="caption">Create a New Request</div>
+  <%= form_for(@location) do |f| %>
+  <div class="field">
+    <table id="table">
+    <tr class="header-row">
+        <td><%= f.label :name, "Location Name" %></td>
+        <td><%= f.label :address, "Location Address" %></td>
+        <td><%= f.label :locationType, "Location Type" %></td>
+    </tr>
+      <tr class="row">
+        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :address %></td>
+        <td><%= f.text_field :locationType %></td>
+        <!-- make these into radio buttons         <td><%= f.label "Drop-Off", "Drop-Off Location" %></td> -->
+        <!-- <td><%= f.radio_button :locationType, :value =>"Drop-Off"%></td>-->
+      
+        <!-- <td><%= f.label "Pick-Up", "Pick-Up Location" %></td>-->
+        <!-- <td><%= f.radio_button :locationType, :value =>"Pick-Up" %></td>-->
+        </tr>
+    </table>
+    <% if @location.errors.any? %>
+      <%= javascript_tag "alertEmpty()" %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+  <% end %>
+</div>
+</body>
