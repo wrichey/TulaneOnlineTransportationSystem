@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-
-  root 'sessions#login'
-  get   '/login', :to => 'sessions#login', :as => :login
-  get '/auth/:provider/callback', :to => 'sessions#create'
-  get '/sessions/new' => 'sessions#new'
-  get '/auth/failure', :to => 'sessions#failure'
-  get '/logout', :to => 'sessions#destroy'
   
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  root 'requests#index'
   get '/requests' => 'requests#index'
  	get '/requests/new' => 'requests#new'
   post '/requests' => 'requests#create'

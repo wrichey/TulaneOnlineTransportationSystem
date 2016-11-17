@@ -2,10 +2,18 @@
   <h3>Submitted Requests</h3>
   <div class="switch">
   <%= button_to 'New Requests', 'requests/new',:method => "get" %>
+<<<<<<< HEAD
+  <% if current_user %>
+      <div>Signed in as <strong><%= current_user.name %></strong>!</div>
+      <%= link_to 'Sign Out', signout_path, id: 'signout'%>
+  <% else %>
+      <%= link_to 'Sign in with Facebook', 'auth/facebook', id: 'sign_in' %>
+  <% end %>
+=======
   <%= button_to 'View Locations', 'locations' , :method => "get"%>
+>>>>>>> 8e5dab8eef2017dc7d8f9b44fd1b0c5920490e78
   </div>
 </div>
-
 
 <div class = "containerTable"> 
     <div class="caption">View All Requests</div>
@@ -35,6 +43,8 @@
             <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
             <!--<%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
             
+            <% if current_user.user_type == "Manager" %>
+            
             <% if request.status == "Pending"%>
                 <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
                 <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
@@ -43,7 +53,8 @@
             <% elsif request.status == "Denied"%>
                 <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
             <% end %> 
-
+            
+            <% end %>
         </tr>
         <% end %>
     </table>
