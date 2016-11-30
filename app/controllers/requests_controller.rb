@@ -8,8 +8,7 @@ class RequestsController < ApplicationController
     end
     
     def create 
-        @request = Request.new(request_params) 
-        
+        @request = current_user.requests.new(request_params) 
         if @request.save 
             flash[:notice] = "Request submitted!"
             redirect_to '/requests' 
@@ -42,7 +41,7 @@ class RequestsController < ApplicationController
    
     private
     def request_params
-        params.require(:request).permit(:FirstName, :LastName, :DOLocation, :PULocation, :PUDate, :ArrivalTime, :DepartureTime, :Email, :StudentID, :status
+        params.require(:request).permit(:user_id, :DOLocation, :PULocation, :PUDate, :ArrivalTime, :DepartureTime, :Email, :StudentID, :status
         )
     end
 end

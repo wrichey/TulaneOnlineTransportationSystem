@@ -1,8 +1,7 @@
 class CreateRequests < ActiveRecord::Migration
   def change
     create_table :requests do |t|
-      t.text :FirstName
-      t.text :LastName
+      t.belongs_to :user
       t.text :PULocation
       t.text :DOLocation
       t.text :PUDate

@@ -18,21 +18,25 @@
   <%= form_for(@location) do |f| %>
   <div class="field">
     <table id="table">
-    <tr class="header-row">
-        <td><%= f.label :name, "Location Name" %></td>
-        <td><%= f.label :address, "Location Address" %></td>
-        <td><%= f.label :locationType, "Location Type" %></td>
-    </tr>
-      <tr class="row">
-        <td><%= f.text_field :name %></td>
-        <td><%= f.text_field :address %></td>
-        <td><%= f.text_field :locationType %></td>
-        <!-- make these into radio buttons         <td><%= f.label "Drop-Off", "Drop-Off Location" %></td> -->
-        <!-- <td><%= f.radio_button :locationType, :value =>"Drop-Off"%></td>-->
-      
-        <!-- <td><%= f.label "Pick-Up", "Pick-Up Location" %></td>-->
-        <!-- <td><%= f.radio_button :locationType, :value =>"Pick-Up" %></td>-->
+      <thead>
+        <tr>
+          <td><%= f.label :name, "Location Name" %></td>
+          <td><%= f.label :address, "Location Address" %></td>
+          <td><%= f.label :locationType, "Location Type" %></td>
         </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.text_field :address %></td>
+          <td><%= f.text_field :locationType %></td>
+          <!-- make these into radio buttons
+          <td><%= f.label "Drop-Off", "Drop-Off Location" %></td>
+          <td><%= f.radio_button :locationType, :value =>"Drop-Off"%></td>
+          <td><%= f.label "Pick-Up", "Pick-Up Location" %></td>
+          <td><%= f.radio_button :locationType, :value =>"Pick-Up" %></td>-->
+        </tr>
+      </tbody>
     </table>
     <% if @location.errors.any? %>
       <%= javascript_tag "alertEmpty()" %>

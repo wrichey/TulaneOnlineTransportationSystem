@@ -11,14 +11,14 @@
   		display: inline;
 	}
 
-	#table {
+	/* #table {
 		display: table;
 	 	width: 100%; 
 	 	background: #fff;
 	 	margin: 0;
 	 	box-sizing: border-box;
 
-	 }
+	 } */
 
 	 .caption {
 	 	display: block;
@@ -69,10 +69,10 @@
 			padding: 0;
 		}
 
-		#table {
+	/*	#table {
 			display: block;
 			margin: 44px 0 0 0;
-		}
+		} */
 
 		.caption {
 			position: fixed;

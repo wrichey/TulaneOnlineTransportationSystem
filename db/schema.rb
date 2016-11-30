@@ -30,8 +30,7 @@ ActiveRecord::Schema.define(version: 20161117035014) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.text     "FirstName"
-    t.text     "LastName"
+    t.integer  "user_id"
     t.text     "PULocation"
     t.text     "DOLocation"
     t.text     "PUDate"

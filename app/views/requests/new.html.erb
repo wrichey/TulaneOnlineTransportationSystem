@@ -21,35 +21,25 @@
   <div class="caption">Create a New Request</div>
   <%= form_for(@request) do |f| %>
   <div class="field">
-    <table id="table">
-    <tr class="header-row">
-        <td><%= f.label :StudentID, "Student ID" %></td>
-        <td><%= f.label :FirstName, "First Name" %></td>
-        <td><%= f.label :LastName, "Last Name" %></td>
-        <td><%= f.label :Email, "Email" %></td>
-        
-      </tr>
-      <tr class="row">
-        <td><%= f.text_field :StudentID %></td>
-        <td><%= f.text_field :FirstName %></td>
-        <td><%= f.text_field :LastName %></td>
-        <td><%= f.email_field :Email %></td>
-      </tr>
-      <tr class="header-row">
-        
-        <td><%= f.label :PUDate, "Date for Request" %></td>
-        <td><%= f.label :DOLocation, "Pick-Up Location" %></td>
-        <td><%= f.label :PULocation, "Drop-Off Location" %></td>
-        <td><%= f.label :ArrivalTime, "Time to Arrive on Site" %></td>
-        <td><%= f.label :DepartureTime, "Time to Depart from Site" %></td>
-      </tr>
-      <tr class="row">
-        <td><%= f.date_field :PUDate %></td>
-        <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.name}) %></td>
-        <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.name}) %></td>
-        <td><%= f.time_field :ArrivalTime %></td>
-        <td><%= f.time_field :DepartureTime %></td>      
-      </tr>
+    <table id="table" class="table">
+      <thead>
+        <tr>
+          <td><%= f.label :PUDate, "Date for Request" %></td>
+          <td><%= f.label :DOLocation, "Pick-Up Location" %></td>
+          <td><%= f.label :PULocation, "Drop-Off Location" %></td>
+          <td><%= f.label :ArrivalTime, "Time to Arrive on Site" %></td>
+          <td><%= f.label :DepartureTime, "Time to Depart from Site" %></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= f.date_field :PUDate %></td>
+          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.name}) %></td>
+          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.name}) %></td>
+          <td><%= f.time_field :ArrivalTime %></td>
+          <td><%= f.time_field :DepartureTime %></td>      
+        </tr>
+      </tbody>
     </table>
     <% if @request.errors.include? :date %>
       <%= javascript_tag "alertDate()" %>
