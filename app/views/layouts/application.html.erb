@@ -15,6 +15,38 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/requests">TOTS</a>
+      </div>
+      <% if current_user %>
+      <ul class="nav navbar-nav">
+        <li class="<%= 'active' if current_page?('/requests') %>"><a href="/requests">Veiw Requests</a></li>
+        <li class="<%= 'active' if current_page?('/requests/new') %>"><a href="/requests/new">New Request</a></li>
+        
+        <% if current_user.user_type=="Manager" %>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/locations">Locations<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/locations">Veiw Locations</a></li>
+            <li><a href="/locations/new">New Location</a></li>
+          </ul>
+        </li>
+        <% end %>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">  
+        <li><a><%= current_user.name %> <span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a href="/logout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
+      </ul>  
+      
+      <% else %>
+      <ul class="nav navbar-nav navbar-right">  
+        <li><a href="/">Sign In <span class="glyphicon glyphicon-log-in"></span></a></li>
+      </ul>  
+      <% end %>
+    </div>
+  </nav>
   
   <%= yield %>
 

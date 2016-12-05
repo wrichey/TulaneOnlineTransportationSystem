@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root 'home#show'
-  get   '/login', :to => 'sessions#login', :as => :login
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get   '/login', :to => 'sessions#new', :as => :login
   get '/update' => 'home#update'
   patch '/update.:id' => 'home#create'
   get '/auth/:provider/callback', :to => 'sessions#create'

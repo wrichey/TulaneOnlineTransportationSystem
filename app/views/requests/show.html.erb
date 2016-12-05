@@ -1,46 +1,40 @@
 <div class="header">
     <h3>Your Request</h3>
-    <div class="switch">
-        <%= button_to 'New Requests', '/requests/new',:method => "get" %>
-    </div>
-    <div class="switch">
-        <%= button_to 'View Requests', '/requests',:method => "get" %>
-    </div>
 </div>
-<div class = "containerTable"> 
+<div class="container"> 
     <div class="caption">View Individual Requests</div>
-    <table id="table" border=.5>
-        <tr class="header-row">
-            <th>Time Created</th>
-            <th>Student ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Pick-Up Location</th>
-            <th>Drop-Off Location</th>
-            <th>Request Date</th>
-            <th>Arrival Time</th>
-            <th>Departure Time</th>
-            <th>Status</th>
-        </tr>
-        <tr class="row">
-            
-            <td><%= @request.created_at %></td> 
-            <td><%= @request.StudentID %></td>
-            <td><%= @request.FirstName %></td>
-            <td><%= @request.LastName %></td>
-            <td><%= @request.Email %></td>
-            <td><%= @request.PULocation %></td>
-            <td><%= @request.DOLocation %></td>
-            <td><%= @request.PUDate %></td>
-            <td><%= @request.ArrivalTime %></td>
-            <td><%= @request.DepartureTime %></td>
-            <td><%= @request.status %></td>
-            <td class="tableButton"><%= link_to 'Delete', request_path(@request.id), :method => :DELETE  %></td>
-            
-            
-            
-        </tr>
+    <table class="table">
+        <thead>
+            <tr class="header-row">
+                <th>Time Created</th>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Pick-Up Location</th>
+                <th>Drop-Off Location</th>
+                <th>Request Date</th>
+                <th>Arrival Time</th>
+                <th>Departure Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= @request.created_at %></td> 
+                <td><%=  %></td>
+                <td><%=  %></td>
+                <td><%=  %></td>
+                <td><%= @request.Email %></td>
+                <td><%= @request.PULocation %></td>
+                <td><%= @request.DOLocation %></td>
+                <td><%= @request.PUDate %></td>
+                <td><%= @request.ArrivalTime %></td>
+                <td><%= @request.DepartureTime %></td>
+                <td><%= @request.status %></td>
+                <td class="tableButton"><%= link_to 'Delete', request_path(@request.id), :method => :DELETE  %></td>
+            </tr>
+        </tbody>    
     </table>
 </div>
     

@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime :oauth_expires_at
       
       t.string :user_type
+      t.string :sID
 
       t.timestamps null: true
     end

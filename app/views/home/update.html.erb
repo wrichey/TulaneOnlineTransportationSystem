@@ -2,19 +2,23 @@
   <div class="caption">Create a New Request</div>
   <%= form_for(@user,url: update_path(@user)) do |f| %>
   <div class="field">
-    <table id="table">
-    <tr class="header-row">
-        <td><%= f.label :user_type, "User Type" %></td>
+    <table id="table" class="table">
+      <thead>
+        <tr>
+          <td><%= f.label :sID, "Student ID" %></td>
+          <td><%= f.label :user_type, "User Type" %></td>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= f.number_field :sID %></td>
+        <td><%= f.select :user_type, [["Student", "Student"], ["Manager", "Manager"]] %></td>
       </tr>
-      
-      <tr class="row">
-        <td><%= f.text_field :user_type %></td>
-      </tr>
-      </table
-      </div>
-    </div>
-    <div class="actions">
-        <%= f.submit "Create" %>
-    </div>
-    <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+  <% end %>
 </div>
