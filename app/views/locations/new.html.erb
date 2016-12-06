@@ -1,9 +1,4 @@
-<div class="header">
-  <h3>Add New Location</h3>
-</div>
-
 <body>
-  
 <script>
   function alertEmpty() {
     alert("You must complete all fields!");
@@ -14,7 +9,7 @@
   <div class="caption">Add a New Location</div>
   <%= form_for(@location) do |f| %>
   <div class="field">
-    <table id="table">
+    <table class="table">
       <thead>
         <tr>
           <td><%= f.label :name, "Location Name" %></td>

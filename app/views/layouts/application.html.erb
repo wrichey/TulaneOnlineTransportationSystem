@@ -22,13 +22,13 @@
       </div>
       <% if current_user %>
       <ul class="nav navbar-nav">
-        <li class="<%= 'active' if current_page?('/requests') %>"><a href="/requests">Veiw Requests</a></li>
+        <li class="<%= 'active' if current_page?('/requests') %>"><a href="/requests">View Requests</a></li>
         <li class="<%= 'active' if current_page?('/requests/new') %>"><a href="/requests/new">New Request</a></li>
         
         <% if current_user.user_type=="Manager" %>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/locations">Locations<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/locations">Veiw Locations</a></li>
+            <li><a href="/locations">View Locations</a></li>
             <li><a href="/locations/new">New Location</a></li>
           </ul>
         </li>

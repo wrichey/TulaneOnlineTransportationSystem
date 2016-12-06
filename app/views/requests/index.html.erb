@@ -4,12 +4,12 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Pick-Up Location</th>
-                <th>Drop-Off Location</th>
-                <th>Date for Request</th>
-                <th>Arrival Time</th>
-                <th>Departure Time</th>
-                <th>Status</th>
+                <th><%= sortable "PULocation", "Pick Up Location" %></th>
+                <th><%= sortable "DOLocation", "Drop Off Location" %></th>
+                <th><%= sortable "PUDate", "Requested Date" %></th>
+                <th><%= sortable "ArrivalTime", "Arrival Time" %></th>
+                <th><%= sortable "DepartureTime", "Departure Time" %></th>
+                <th><%= sortable "status" %></th>
             </tr>
         </thead>
         <% if current_user.user_type=="Student" %>
@@ -69,4 +69,5 @@
         <% end %>
         <% end %>
     </table>
+    <%= will_paginate @requests %>
 </div> 

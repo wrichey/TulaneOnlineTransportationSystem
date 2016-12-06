@@ -1,6 +1,8 @@
 class RequestsController < ApplicationController
+    helper_method :sort_column, :sort_direction
+    
     def index 
-        @requests = Request.all
+        @requests = Request.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     end
     
     def new
@@ -41,7 +43,15 @@ class RequestsController < ApplicationController
    
     private
     def request_params
-        params.require(:request).permit(:user_id, :DOLocation, :PULocation, :PUDate, :ArrivalTime, :DepartureTime, :Email, :StudentID, :status
-        )
+        params.require(:request).permit(:user_id, :DOLocation, :PULocation, :PUDate, :ArrivalTime, :DepartureTime, :Email, :StudentID, :status)
+    end
+    
+    def sort_column
+        #Request.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+        params[:sort] || "created_at"
+    end
+  
+    def sort_direction
+        %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end
