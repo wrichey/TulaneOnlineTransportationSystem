@@ -2,8 +2,19 @@ class HomeController < ApplicationController
   def show
   end
   
+  def save
+    @user.save
+  end
+  
   def update 
     @user = current_user
+    if @user.sID == nil
+      @user.sID = 0
+      @user.save
+      @sid = @user.sID;
+    else
+     
+    end
   end
   
   def create 
@@ -17,6 +28,6 @@ class HomeController < ApplicationController
   end
   
   def user_params
-      params.require(:user).permit(:user_type)
+      params.require(:user).permit(:user_type,:sID)
   end
 end

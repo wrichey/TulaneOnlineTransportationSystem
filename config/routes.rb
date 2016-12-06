@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/logout', :to => 'sessions#destroy'
   
   
-  
+  resources :users
   
   get '/requests' => 'requests#index'
  	get '/requests/new' => 'requests#new'
