@@ -3,6 +3,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
+                <th><%= sortable "created_at" %></th>
                 <th>Name</th>
                 <th><%= sortable "PULocation", "Pick Up Location" %></th>
                 <th><%= sortable "DOLocation", "Drop Off Location" %></th>
@@ -17,6 +18,7 @@
         <% @requests.each do |request| %>
         <tbody>
             <tr>
+                <td><%= request.created_at.strftime("%d %b. %Y") %></td>
                 <td><%= current_user.name %></td>
                 <td><%= request.PULocation %></td>
                 <td><%= request.DOLocation %></td>
@@ -39,6 +41,7 @@
         <% @user = User.find_by :id => request.user_id %>
         <tbody>
             <tr>
+                <td><%= request.created_at.strftime("%d %b. %Y") %></td>
                 <td><%= @user.name %></td>
                 <td><%= request.PULocation %></td>
                 <td><%= request.DOLocation %></td>
