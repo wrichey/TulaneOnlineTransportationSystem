@@ -14,8 +14,9 @@
             </tr>
         </thead>
         <% if current_user.user_type=="Student" %>
-        <% @requests = Request.where(user_id: current_user) %>
-        <% @requests.each do |request| %>
+        <% @user_requests = Request.where(user_id: current_user) %>
+        <% @requests.each do |request|% %>
+            <% if Request.where(user_ud: current_user) %>
         <tbody>
             <tr>
                 <td><%= request.created_at.strftime("%d %b. %Y") %></td>
@@ -26,17 +27,14 @@
                 <td><%= request.ArrivalTime %></td>
                 <td><%= request.DepartureTime %></td>
                 <td><%= request.status %></td>
-            
                 <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
-                
-                <% if current_user.user_type == "Student" %>
-                    <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
-                <% end %>
+                <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
             </tr>
         </tbody>
+            <% end %>
         <% end %>
         
-        <% else %>
+        <% if current_user.user_type=="Manager" %>
         <% @requests.each do |request| %>
         <% @user = User.find_by :id => request.user_id %>
         <tbody>
