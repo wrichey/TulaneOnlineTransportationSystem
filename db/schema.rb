@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20161117035014) do
     t.datetime "oauth_expires_at"
     t.string   "user_type"
     t.string   "sID"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

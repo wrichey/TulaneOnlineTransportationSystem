@@ -12,6 +12,8 @@ class RequestsController < ApplicationController
     def create 
         @request = current_user.requests.new(request_params) 
         if @request.save 
+            @user = current_user
+            Mailer.email(@user).deliver_now
             flash[:notice] = "Request submitted!"
             redirect_to '/requests' 
         else 

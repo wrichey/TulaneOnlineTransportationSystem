@@ -16,4 +16,3 @@ Location.create(name: 'Reily', address: 'Ben Weiner Drive', locationType: "Pick-
 Location.create(name: "Audubon Charter", address: '1111 Milan', locationType: "Drop-Off")
 Location.create(name: 'St. Andrews', address: 'Carrolton', locationType: "Drop-Off")
 
-Request.create(FirstName: 'Winona', LastName: 'Richey', PULocation: "Bruff", DOLocation: "St. Andrews", PUDate: "2016-11-30", ArrivalTime: "15:00", DepartureTime: "19:00", StudentID: "112345678", Email: "email@tulane.edu", status: "Accepted")      
