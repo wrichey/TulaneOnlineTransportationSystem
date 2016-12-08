@@ -14,5 +14,5 @@ Location.create(name: 'Bruff', address: '31 McAlister Drive', locationType: "Pic
 Location.create(name: 'Reily', address: 'Ben Weiner Drive', locationType: "Pick-Up")
 
 Location.create(name: "Audubon Charter", address: '1111 Milan', locationType: "Drop-Off")
-Location.create(name: 'St. Andrews', address: 'Carrolton', locationType: "Drop-Off")
+Location.create(name: 'St. Andrews', address: 'Carrollton', locationType: "Drop-Off")
 
