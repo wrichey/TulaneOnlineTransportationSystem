@@ -21,12 +21,7 @@
         <tr>
           <td><%= f.text_field :name %></td>
           <td><%= f.text_field :address %></td>
-          <td><%= f.text_field :locationType %></td>
-          <!-- make these into radio buttons
-          <td><%= f.label "Drop-Off", "Drop-Off Location" %></td>
-          <td><%= f.radio_button :locationType, :value =>"Drop-Off"%></td>
-          <td><%= f.label "Pick-Up", "Pick-Up Location" %></td>
-          <td><%= f.radio_button :locationType, :value =>"Pick-Up" %></td>-->
+          <td><%= f.select :locationType, [["Pick-Up", "Pick-Up"], ["Drop-Off", "Drop-Off"]],:value => @location.locationType %></td>
         </tr>
       </tbody>
     </table>
@@ -35,7 +30,7 @@
     <% end %>
   </div>
   <div class="actions">
-    <%= f.submit "Create" %>
+    <%= f.submit "Create", :class => "btn btn-primary pull-right" %>
   </div>
   <% end %>
 </div>

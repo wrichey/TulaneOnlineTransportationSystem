@@ -3,6 +3,10 @@ class RequestsController < ApplicationController
     
     def index 
         @requests = Request.order(sort_column + " " + sort_direction).paginate(per_page: 15, page: params[:page])
+        respond_to do |format|
+            format.html
+            format.csv { render text: @requests.to_csv }
+    end
     end
     
     def new
@@ -41,6 +45,8 @@ class RequestsController < ApplicationController
       Request.update(@request, :status => params[:status])
       redirect_to '/requests'
    end
+   
+   
    
    
     private

@@ -15,8 +15,8 @@
         </thead>
         <% if current_user.user_type=="Student" %>
         <% @user_requests = Request.where(user_id: current_user) %>
-        <% @requests.each do |request|% %>
-            <% if Request.where(user_ud: current_user) %>
+        <% @user_requests.each do |request|% %>
+            <% if Request.where(user_id: current_user) %>
         <tbody>
             <tr>
                 <td><%= request.created_at.strftime("%d %b. %Y") %></td>
@@ -50,12 +50,6 @@
             
                 <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
                 
-                <% if current_user.user_type == "Student" %>
-                    <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
-                <% end %>
-                <!--<%= link_to 'Update', request_path(request.id), :method => :POST %></td>-->
-            
-                <% if current_user.user_type == "Manager" %>
                     <% if request.status == "Pending"%>
                         <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
                         <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
@@ -64,11 +58,13 @@
                     <% elsif request.status == "Denied"%>
                         <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
                     <% end %> 
-                <% end %>
             </tr>
         </tbody>
         <% end %>
         <% end %>
     </table>
+    <!--<div class="container">
+      <Button><%= link_to "CSV", requests_path(format: "CSV") %></Button>
+    </div>-->
     <%= will_paginate @requests %>
 </div> 
