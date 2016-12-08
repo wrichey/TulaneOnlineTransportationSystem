@@ -11,7 +11,7 @@
 </script>
   
 <div class="container">
-  <div class="caption"><h1>Create a New Request</h1></div>
+  <div class="caption"><h1>New Request</h1></div>
   <%= form_for(@request) do |f| %>
   <div class="field">
     <table id="table" class="table">
@@ -20,8 +20,8 @@
           <td><%= f.label :PUDate, "Date for Request" %></td>
           <td><%= f.label :DOLocation, "Pick-Up Location" %></td>
           <td><%= f.label :PULocation, "Drop-Off Location" %></td>
-          <td><%= f.label :ArrivalTime, "Time to Arrive on Site" %></td>
-          <td><%= f.label :DepartureTime, "Time to Depart from Site" %></td>
+          <td><%= f.label :ArrivalTime, "Arrival Time" %></td>
+          <td><%= f.label :DepartureTime, "Departure Time" %></td>
         </tr>
       </thead>
       <tbody>
