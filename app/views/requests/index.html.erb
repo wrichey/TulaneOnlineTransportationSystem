@@ -15,7 +15,7 @@
         </thead>
         <% if current_user.user_type=="Student" %>
         <% @user_requests = Request.where(user_id: current_user) %>
-        <% @requests.each do |request|% %>
+        <% @user_requests.each do |request|% %>
             <% if Request.where(user_ud: current_user) %>
         <tbody>
             <tr>
