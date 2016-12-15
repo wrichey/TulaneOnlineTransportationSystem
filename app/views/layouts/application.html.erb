@@ -40,13 +40,13 @@
       
       </ul>
       <ul class="nav navbar-nav navbar-right">  
-        <li><a><%= current_user.name %> <span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a href="/update"> <%= current_user.name %> <span class="glyphicon glyphicon-user"></span></a></li>
         <li><a href="/logout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
       </ul>  
       
       <% else %>
       <ul class="nav navbar-nav navbar-right">  
-        <li><a href="/">Sign In <span class="glyphicon glyphicon-log-in"></span></a></li>
+        <li><a href="/auth/facebook">Sign In <span class="glyphicon glyphicon-log-in"></span></a></li>
       </ul>  
       <% end %>
     </div>
