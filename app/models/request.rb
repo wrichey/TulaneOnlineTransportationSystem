@@ -1,5 +1,6 @@
 class Request < ActiveRecord::Base
     belongs_to :user
+    has_many :locations
     
     validates :PULocation, :presence => true
     validates :DOLocation, :presence => true
