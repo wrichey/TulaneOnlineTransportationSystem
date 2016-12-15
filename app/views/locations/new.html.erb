@@ -1,8 +1,50 @@
+<head>
+  <style>
+    #map {
+      height:400px;
+      width:80%;
+      margin:auto;
+    }
+  </style>
+</head>
+
 <body>
 <script>
   function alertEmpty() {
     alert("You must complete all fields!");
   }
+</script>
+  
+<script>
+  function initMap() {
+    
+    var geocoder = new google.maps.Geocoder();
+    
+    var tulane = {lat: 29.9404291, lng: -90.1205452};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: tulane
+    });
+    
+    document.getElementById('update').addEventListener('click', function codeAddress() {
+      var address = document.getElementById('address').value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    });
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhS2G5ewwonAB3rzpqO4MqxbV4MtsPkTM&callback=initMap">
 </script>
   
 <div class="container">
@@ -20,7 +62,7 @@
       <tbody>
         <tr>
           <td><%= f.text_field :name %></td>
-          <td><%= f.text_field :address %></td>
+          <td><%= f.text_field :address, :id => "address" %><div id = "update" class="btn btn-xs btn-primary">Update</div></td>
           <td><%= f.select :locationType, [["Pick-Up", "Pick-Up"], ["Drop-Off", "Drop-Off"]],:value => @location.locationType %></td>
         </tr>
       </tbody>
@@ -29,6 +71,9 @@
       <%= javascript_tag "alertEmpty()" %>
     <% end %>
   </div>
+  
+  <div id="map"></div>
+  
   <div class="actions">
     <%= f.submit "Create", :class => "btn btn-primary pull-right" %>
   </div>

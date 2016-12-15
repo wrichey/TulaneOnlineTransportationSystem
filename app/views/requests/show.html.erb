@@ -66,9 +66,9 @@
                 <td><%= @user.email %></td>
                 <td id="pickup"><%= @request.PULocation %></td>
                 <td id="dropoff"><%= @request.DOLocation %></td>
-                <td><%= @request.PUDate %></td>
-                <td><%= @request.ArrivalTime %></td>
-                <td><%= @request.DepartureTime %></td>
+                <td><%= @request.PUDate.strftime("%b. %d %Y") %></td>
+                <td><%= @request.ArrivalTime.strftime("%I:%M %p") %></td>
+                <td><%= @request.DepartureTime.strftime("%I:%M %p") %></td>
                 <td><%= @request.status %></td>
                 <td class="tableButton"><%= link_to 'Delete', request_path(@request.id), :method => :DELETE  %></td>
             </tr>
