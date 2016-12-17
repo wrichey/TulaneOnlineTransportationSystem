@@ -59,8 +59,8 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhS2G5ewwonAB3rzpqO4MqxbV4MtsPkTM&callback=initMap">
 </script>
   
-<div class="container">
-  <div class="caption"><h1>New Request</h1></div>
+<div class="container" style="background: rgba(255, 255, 255, 0.9);">
+  <div class="caption" style="background: green;"><h1>New Request</h1></div>
   <%= form_for(@request) do |f| %>
   <div class="field">
     <table id="table" class="table">
@@ -76,27 +76,30 @@
       <tbody>
         <tr>
           <td><%= f.date_field :PUDate %></td>
-          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.address}), {:include_blank => "Choose a location"}, :id => "pickup" %></td>
-          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.address}), {:include_blank => "Choose a location"}, :id => "dropoff" %></td>
+          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.address}), {}, :id => "pickup" %></td>
+          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.address}), {}, :id => "dropoff" %></td>
           <td><%= f.time_field :ArrivalTime %></td>
           <td><%= f.time_field :DepartureTime %></td>      
         </tr>
       </tbody>
     </table>
-    <div><%= @location %></div>
-    <% @location = Location.find_by :name => "Bruff" %>
-    <%= content_tag :div, class: "location", data: {location: @location} do %>
-    <% end %>
+    <script>
+      $(document.getElementById('pickup')).on("change", function(){
+        console.log(document.getElementById("pickup").value);
+      });
+    </script>
     <% if @request.errors.include? :date %>
       <%= javascript_tag "alertDate()" %>
     <% elsif @request.errors.any? %>
       <%= javascript_tag "alertEmpty()" %>
     <% end %>
+    
+    <div id="map"></div>
+    <div class="actions">
+      <%= f.submit "Create", :class => "btn btn-primary pull-right" %>
+    </div>
+    <% end %>
+    
   </div>
-  <div id="map"></div>
-  <div class="actions">
-    <%= f.submit "Create", :class => "btn btn-primary pull-right" %>
-  </div>
-  <% end %>
 </div>
 </body>

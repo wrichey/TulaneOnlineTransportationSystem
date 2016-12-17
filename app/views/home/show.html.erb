@@ -1,11 +1,14 @@
-<div class="container">
-  <div class="text-center">
-    <% if current_user %>
-    <h2>Sign Out</h2>
-    <p>You are already signed in, click below to log out.</p>
-    <%= button_to 'Sign Out', '/logout', id: 'signout',:class => "btn btn-primary center-block", :method => "get"%>    <% else %>
-    <h2>Sign In</h2>
-    <%= button_to 'Sign in with Facebook', 'auth/facebook', id: 'sign_in',:class => "btn btn-primary center-block", :method => "get" %>
-    <% end %>
+<div class="container" style="background: rgba(255, 255, 255, 0.9);">
+  <div class="caption" style="background: green; margin-bottom: 20px;"><h1>About TOTS</h1></div>
+  <div class="text-center" style="height:75vh;">
+    Shuttles & Transportation provides round-trip transportation to internship sites for Tulane undergraduate students who participate in the Public Service Internship Program through the Tulane Center for Public Service (CPS).  To apply to the CPS internship program, click here.
+
+    Undergraduate students may request transportation to interview at their tentative internship if, and only if, their application to the Public Service Internship Program has already been accepted by CPS staff. CPS staff will provide confirmation to Shuttles & Transportation before final approval for transportation is granted. 
+    If you meet all requirements, Shuttles & Transportation will set you up for access to one of the following trip types:
+    SL-Internship Individual One-Time, which is to be used to schedule transportation on a day-by-day basis, or
+    SL-Internship Individual Recurring, which is to be used to set up multiple days as long as the day of week/times/locations are the same
+    To schedule transportation once you have been set up by Shuttles & Transportation under the SL-Internship trip types, log into https://transportation.tulane.edu/.
+    For more information about the Public Service Internship Program, you may contact staff at cpsinternships@tulane.edu.
+ 
   </div>
 </div>

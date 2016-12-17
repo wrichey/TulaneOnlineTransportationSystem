@@ -20,20 +20,6 @@
 
 	 } */
 
-	 .caption {
-	 	display: block;
-	 	width: 100%;
-	 	background: #64e0ef;
-	 	height: 55px;
-	 	padding-left: 10px;
-	 	color: #fff;
-	 	font-size: 20px;
-	 	line-height: 55px;
-	 	text-shadow: 1px 1px 1px rgba(0,0,0,.3);
-	 	box-sizing: border-box;
-	 }
-
-
 	 .header-row {
 	 	background: #8b8b8b;
 	 	color: #fff;
@@ -74,15 +60,6 @@
 			margin: 44px 0 0 0;
 		} */
 
-		.caption {
-			position: fixed;
-			top: 0;
-			text-align: center;
-			height: 44px;
-			line-height: 44px;
-			z-index: 5;
-			border-bottom: 2px solid #999;
-		}
 
 		.row { 
 			position: relative;

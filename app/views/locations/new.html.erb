@@ -47,8 +47,8 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhS2G5ewwonAB3rzpqO4MqxbV4MtsPkTM&callback=initMap">
 </script>
   
-<div class="container">
-  <div class="caption"><h1>New Location</h1></div>
+<div class="container" style="background: rgba(255, 255, 255, 0.9);">
+  <div class="caption" style="background: green;"><h1>New Location</h1></div>
   <%= form_for(@location) do |f| %>
   <div class="field">
     <table class="table">
@@ -70,9 +70,10 @@
     <% if @location.errors.any? %>
       <%= javascript_tag "alertEmpty()" %>
     <% end %>
+    
+    <div id="map"></div>
+    
   </div>
-  
-  <div id="map"></div>
   
   <div class="actions">
     <%= f.submit "Create", :class => "btn btn-primary pull-right" %>
