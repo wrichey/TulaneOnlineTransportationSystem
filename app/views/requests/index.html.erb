@@ -1,5 +1,5 @@
-<div class="container"> 
-    <div class="caption">View All Requests</div>
+<div class="container"  style="background: rgba(255, 255, 255, 0.9);"> 
+    <div class="caption" style="background: green;"><h1>View Requests</h1></div>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -14,38 +14,35 @@
             </tr>
         </thead>
         <% if current_user.user_type=="Student" %>
-        <% @user_requests = Request.where(user_id: current_user) %>
-        <% @user_requests.each do |request|% %>
-            <% if Request.where(user_id: current_user) %>
+        <% @requests.where(user_id: current_user).each do |request| %>
+        <% @user = User.find_by :id => request.user_id %>
         <tbody>
             <tr>
-                <td><%= request.created_at.strftime("%d %b. %Y") %></td>
-                <td><%= current_user.name %></td>
+                <td><%= request.created_at.strftime("%b. %d %Y") %></td>
+                <td><%= @user.name %></td>
                 <td><%= request.PULocation %></td>
                 <td><%= request.DOLocation %></td>
-                <td><%= request.PUDate %></td>
-                <td><%= request.ArrivalTime %></td>
-                <td><%= request.DepartureTime %></td>
+                <td><%= request.PUDate.strftime("%b. %d %Y") %></td>
+                <td><%= request.ArrivalTime.strftime("%I:%M %p") %></td>
+                <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
                 <td><%= request.status %></td>
                 <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
                 <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
             </tr>
         </tbody>
-            <% end %>
         <% end %>
-        
-        <% if current_user.user_type=="Manager" %>
+        <% elsif current_user.user_type=="Manager" %>
         <% @requests.each do |request| %>
         <% @user = User.find_by :id => request.user_id %>
         <tbody>
             <tr>
-                <td><%= request.created_at.strftime("%d %b. %Y") %></td>
+                <td><%= request.created_at.strftime("%b. %d %Y") %></td>
                 <td><%= @user.name %></td>
                 <td><%= request.PULocation %></td>
                 <td><%= request.DOLocation %></td>
-                <td><%= request.PUDate %></td>
-                <td><%= request.ArrivalTime %></td>
-                <td><%= request.DepartureTime %></td>
+                <td><%= request.PUDate.strftime("%b. %d %Y") %></td>
+                <td><%= request.ArrivalTime.strftime("%I:%M %p") %></td>
+                <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
                 <td><%= request.status %></td>
             
                 <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
@@ -63,5 +60,8 @@
         <% end %>
         <% end %>
     </table>
+    <div class="container">
+        <Button><%= link_to "CSV", requests_path(format: "csv") %></Button>
+    </div>
     <%= will_paginate @requests %>
 </div>

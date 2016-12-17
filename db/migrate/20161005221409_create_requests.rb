@@ -4,9 +4,9 @@ class CreateRequests < ActiveRecord::Migration
       t.belongs_to :user
       t.text :PULocation
       t.text :DOLocation
-      t.text :PUDate
-      t.text :ArrivalTime
-      t.text :DepartureTime
+      t.datetime :PUDate
+      t.datetime :ArrivalTime
+      t.datetime :DepartureTime
       t.text :StudentID
       t.text :Email
       t.text :status, :default => "Pending"

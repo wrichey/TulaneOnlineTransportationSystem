@@ -1,5 +1,14 @@
+<head>
+  <style>
+    #map {
+      height:400px;
+      width:80%;
+      margin:auto;
+    }
+  </style>
+</head>
+
 <body>
-  
 <script>
   function alertEmpty() {
     alert("You must complete all fields!");
@@ -9,9 +18,49 @@
     alert("You cannot select a date in the past!")
   }
 </script>
+<script>
+  function initMap() {
+    
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    
+    var tulane = {lat: 29.9404291, lng: -90.1205452};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: tulane
+    });
+    directionsDisplay.setMap(map);
+    
+    var onChangeHandler = function(){
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
+    };
+    document.getElementById('pickup').addEventListener('change', onChangeHandler);
+    document.getElementById('dropoff').addEventListener('change', onChangeHandler);
+  }
   
-<div class="container">
-  <div class="caption">Create a New Request</div>
+  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    var location = $('.location').data('location');
+    console.log(location);
+    directionsService.route({
+      origin: document.getElementById('pickup').value,
+      destination: document.getElementById('dropoff').value,
+      travelMode: 'DRIVING'
+    }, function(response, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to' + status);
+      }
+    });
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhS2G5ewwonAB3rzpqO4MqxbV4MtsPkTM&callback=initMap">
+</script>
+  
+<div class="container" style="background: rgba(255, 255, 255, 0.9);">
+  <div class="caption" style="background: green;"><h1>New Request</h1></div>
   <%= form_for(@request) do |f| %>
   <div class="field">
     <table id="table" class="table">
@@ -20,29 +69,37 @@
           <td><%= f.label :PUDate, "Date for Request" %></td>
           <td><%= f.label :DOLocation, "Pick-Up Location" %></td>
           <td><%= f.label :PULocation, "Drop-Off Location" %></td>
-          <td><%= f.label :ArrivalTime, "Time to Arrive on Site" %></td>
-          <td><%= f.label :DepartureTime, "Time to Depart from Site" %></td>
+          <td><%= f.label :ArrivalTime, "Arrival Time" %></td>
+          <td><%= f.label :DepartureTime, "Departure Time" %></td>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><%= f.date_field :PUDate %></td>
-          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.name}) %></td>
-          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.name}) %></td>
+          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.address}), {}, :id => "pickup" %></td>
+          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.address}), {}, :id => "dropoff" %></td>
           <td><%= f.time_field :ArrivalTime %></td>
           <td><%= f.time_field :DepartureTime %></td>      
         </tr>
       </tbody>
     </table>
+    <script>
+      $(document.getElementById('pickup')).on("change", function(){
+        console.log(document.getElementById("pickup").value);
+      });
+    </script>
     <% if @request.errors.include? :date %>
       <%= javascript_tag "alertDate()" %>
     <% elsif @request.errors.any? %>
       <%= javascript_tag "alertEmpty()" %>
     <% end %>
+    
+    <div id="map"></div>
+    <div class="actions">
+      <%= f.submit "Create", :class => "btn btn-primary pull-right" %>
+    </div>
+    <% end %>
+    
   </div>
-  <div class="actions">
-    <%= f.submit "Create", :class => "btn btn-primary pull-right" %>
-  </div>
-  <% end %>
 </div>
 </body>
