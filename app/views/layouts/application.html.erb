@@ -22,10 +22,14 @@
       </div>
       <% if current_user %>
       <ul class="nav navbar-nav">
-        <li class="<%= 'active' if current_page?('/requests') %>"><a href="/requests">View Requests</a></li>
+        <% if current_user.user_type=="Student" %>
+        <li class="<%= 'active' if current_page?('/requests') %>"><a href="/requests">My Requests</a></li>
         <li class="<%= 'active' if current_page?('/requests/new') %>"><a href="/requests/new">New Request</a></li>
         
-        <% if current_user.user_type=="Manager" %>
+        <% elsif current_user.user_type=="Manager" %>
+        <li class="<%= 'active' if current_page?('/requests') %>"><a href="/requests">View Requests</a></li>
+        <li class="<%= 'active' if current_page?('/requests/new') %>"><a href="/requests/new">New Request</a></li>
+
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/locations">Locations<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/locations">View Locations</a></li>
@@ -36,13 +40,13 @@
       
       </ul>
       <ul class="nav navbar-nav navbar-right">  
-        <li><a><%= current_user.name %> <span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a href="/update"> <%= current_user.name %> <span class="glyphicon glyphicon-user"></span></a></li>
         <li><a href="/logout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
       </ul>  
       
       <% else %>
       <ul class="nav navbar-nav navbar-right">  
-        <li><a href="/">Sign In <span class="glyphicon glyphicon-log-in"></span></a></li>
+        <li><a href="/auth/facebook">Sign In <span class="glyphicon glyphicon-log-in"></span></a></li>
       </ul>  
       <% end %>
     </div>

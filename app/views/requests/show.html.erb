@@ -1,3 +1,45 @@
+<head>
+  <style>
+    #map {
+      height:400px;
+      width:80%;
+      margin:auto;
+      background: blue;
+    }
+  </style>
+</head>
+
+<script>
+  function initMap() {
+    
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    
+    var tulane = {lat: 29.9404291, lng: -90.1205452};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: tulane
+    });
+    directionsDisplay.setMap(map);
+    
+    directionsService.route({
+        origin: document.getElementById("pickup").innerHTML,
+        destination: document.getElementById("dropoff").innerHTML,
+        travelMode: "DRIVING"
+    }, function(response, status) {
+        if(status === "OK") {
+            directionsDisplay.setDirections(response);
+        } else {
+            window.alert("Directions request failed due to " + status);
+        }
+    });
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhS2G5ewwonAB3rzpqO4MqxbV4MtsPkTM&callback=initMap">
+</script>
+
 <div class="container"> 
     <div class="caption"><h1>View Individual Request</h1></div>
     <table class="table">
@@ -22,15 +64,16 @@
                 <td><%= @user.sID %></td>
                 <td><%= @user.name %></td>
                 <td><%= @user.email %></td>
-                <td><%= @request.PULocation %></td>
-                <td><%= @request.DOLocation %></td>
-                <td><%= @request.PUDate %></td>
-                <td><%= @request.ArrivalTime %></td>
-                <td><%= @request.DepartureTime %></td>
+                <td id="pickup"><%= @request.PULocation %></td>
+                <td id="dropoff"><%= @request.DOLocation %></td>
+                <td><%= @request.PUDate.strftime("%b. %d %Y") %></td>
+                <td><%= @request.ArrivalTime.strftime("%I:%M %p") %></td>
+                <td><%= @request.DepartureTime.strftime("%I:%M %p") %></td>
                 <td><%= @request.status %></td>
                 <td class="tableButton"><%= link_to 'Delete', request_path(@request.id), :method => :DELETE  %></td>
             </tr>
         </tbody>    
     </table>
+    <div id="map"></div>
 </div>
     
