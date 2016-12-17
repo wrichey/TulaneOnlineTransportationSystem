@@ -60,8 +60,8 @@
         <% end %>
         <% end %>
     </table>
-    <!--<div class="container">
-      <Button><%= link_to "CSV", requests_path(format: "CSV") %></Button>
-    </div>-->
+    <div class="container">
+        <Button><%= link_to "CSV", requests_path(format: "csv") %></Button>
+    </div>
     <%= will_paginate @requests %>
 </div> 

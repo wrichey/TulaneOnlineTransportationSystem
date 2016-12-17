@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
         @requests = Request.order(sort_column + " " + sort_direction).paginate(per_page: 15, page: params[:page])
         respond_to do |format|
             format.html
-            format.csv { render text: @requests.to_csv }
+            format.csv { send_data @requests.to_csv }
     end
     end
     
