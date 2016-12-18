@@ -34,7 +34,7 @@
     var onChangeHandler = function(){
       calculateAndDisplayRoute(directionsService, directionsDisplay);
     };
-    document.getElementById('pickup').addEventListener('change', onChangeHandler);
+    document.getElementById('pickup')).addEventListener('change', onChangeHandler);
     document.getElementById('dropoff').addEventListener('change', onChangeHandler);
   }
   
@@ -76,8 +76,8 @@
       <tbody>
         <tr>
           <td><%= f.date_field :PUDate %></td>
-          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.address}), {}, :id => "pickup" %></td>
-          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.address}), {}, :id => "dropoff" %></td>
+          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| [l.name, l.address]}), {}, :id => "pickup" %></td>
+          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| [l.name, l.address]}), {}, :id => "dropoff" %></td>
           <td><%= f.time_field :ArrivalTime %></td>
           <td><%= f.time_field :DepartureTime %></td>
           <td><%= f.text_field :Email, :value => @email %></td>
