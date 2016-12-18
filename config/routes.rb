@@ -14,10 +14,9 @@ Rails.application.routes.draw do
   resources :users
   
   get '/requests' => 'requests#index'
-  get '/requests/index' => 'requests#index'
  	get '/requests/new' => 'requests#new'
   post '/requests' => 'requests#create'
-  get '/requests/:id' => 'requests#show'
+  get '/requests/:id' => 'requests#show', as: 'request'
   post '/requests/:id' => 'requests#status'
   #post '/requests/:id' => 'requests#update'
   delete '/requests/:id' => 'requests#delete'
