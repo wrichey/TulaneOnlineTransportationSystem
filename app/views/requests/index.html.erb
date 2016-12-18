@@ -30,8 +30,8 @@
                     <td><%= request.ArrivalTime.strftime("%I:%M %p") %></td>
                     <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
                     <td><%= request.status %></td>
-                    <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
-                    <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
+                    <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :Get, :id => "Show"%></td>
+                    <td class="tableButton"><%= button_to 'Delete', request_path(request.id), :method => :Delete, :id => "Destroy"  %></td>
                 </tr>
             </tbody>
             
@@ -39,7 +39,7 @@
         <% elsif current_user.user_type=="Manager" %>
         <% @requests.each do |request| %>
         <% @user = User.find_by :id => request.user_id %>
-        <div>T o F: <%= @true %> </div>
+        <div><%= @true %> </div>
         <tbody>
             <tr>
                 <td><%= request.created_at.strftime("%b. %d %Y") %></td>
@@ -54,12 +54,12 @@
                 <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
                 
                     <% if request.status == "Pending"%>
-                        <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
-                        <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+                        <td><%= button_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+                        <td><%= button_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
                     <% elsif request.status == "Accepted"%>
-                        <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+                        <td><%= button_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
                     <% elsif request.status == "Denied"%>
-                        <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+                        <td><%= button_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
                     <% end %> 
             </tr>
         </tbody>
