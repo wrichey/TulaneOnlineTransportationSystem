@@ -54,7 +54,7 @@
         <li class="<%= 'active' if current_page?('/requests/new') %>"><a href="/requests/new">New Request</a></li>
         
         <% elsif current_user.user_type=="Manager" %>
-        <li class="<%= 'active' if current_page?('/requests') %>"><a href="/requests">View Requests</a></li>
+        <li class="<%= 'active' if current_page?('/requests') %>"><a href="/requests/index">View Requests</a></li>
         <li class="<%= 'active' if current_page?('/requests/new') %>"><a href="/requests/new">New Request</a></li>
 
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/locations">Locations<span class="caret"></span></a>
