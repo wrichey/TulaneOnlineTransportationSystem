@@ -9,6 +9,14 @@ class RequestsController < ApplicationController
     end
     end
     
+    def accepted
+        @true = true
+        @request = Request.find(params[:id])
+        Mailer.email(@request).deliver_now
+    end
+    
+    helper_method :accepted
+    
     def new
        @request = Request.new
     end
@@ -16,8 +24,8 @@ class RequestsController < ApplicationController
     def create 
         @request = current_user.requests.new(request_params) 
         if @request.save 
-            @user = current_user
-            Mailer.email(@user).deliver_now
+            @email = current_user.email
+            @request.save
             flash[:notice] = "Request submitted!"
             redirect_to '/requests' 
         else 
@@ -43,6 +51,8 @@ class RequestsController < ApplicationController
    def status
       @request = Request.find(params[:id])
       Request.update(@request, :status => params[:status])
+      @request.Email = @email
+      Mailer.email(@request).deliver_now
       redirect_to '/requests'
    end
    
