@@ -54,7 +54,7 @@
                 <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
                 
                     <% if request.status == "Pending"%>
-                        <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST,:id => "Status", class: "tableButton" %></td>
+                        <td><%= link_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
                         <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
                     <% elsif request.status == "Accepted"%>
                         <td><%= link_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
