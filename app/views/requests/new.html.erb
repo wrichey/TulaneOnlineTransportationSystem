@@ -76,8 +76,8 @@
       <tbody>
         <tr>
           <td><%= f.date_field :PUDate %></td>
-          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.name}), {}, :id => "pickup" %></td>
-          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.name}), {}, :id => "dropoff" %></td>
+          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.address}), {}, :id => "pickup" %></td>
+          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.address}), {}, :id => "dropoff" %></td>
           <td><%= f.time_field :ArrivalTime %></td>
           <td><%= f.time_field :DepartureTime %></td>      
         </tr>
