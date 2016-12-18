@@ -1,5 +1,9 @@
 <div class="container"  style="background: rgba(255, 255, 255, 0.9);"> 
     <div class="caption" style="background: green;"><h1>View Requests</h1></div>
+    <% if @requests.blank? %>
+        <h3 align = 'center'> You have not submitted any requests. </h3>
+        <p align = "center">Follow the link in the top left to make a transportation request. </p>
+    <% else %>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -14,23 +18,24 @@
             </tr>
         </thead>
         <% if current_user.user_type=="Student" %>
-        <% @requests.where(user_id: current_user).each do |request| %>
-        <% @user = User.find_by :id => request.user_id %>
-        <tbody>
-            <tr>
-                <td><%= request.created_at.strftime("%b. %d %Y") %></td>
-                <td><%= @user.name %></td>
-                <td><%= request.PULocation %></td>
-                <td><%= request.DOLocation %></td>
-                <td><%= request.PUDate.strftime("%b. %d %Y") %></td>
-                <td><%= request.ArrivalTime.strftime("%I:%M %p") %></td>
-                <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
-                <td><%= request.status %></td>
-                <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
-                <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
-            </tr>
-        </tbody>
-        <% end %>
+            <% @requests.where(user_id: current_user).each do |request| %>
+            <% @user = User.find_by :id => request.user_id %>
+            <tbody>
+                <tr>
+                    <td><%= request.created_at.strftime("%b. %d %Y") %></td>
+                    <td><%= @user.name %></td>
+                    <td><%= request.PULocation %></td>
+                    <td><%= request.DOLocation %></td>
+                    <td><%= request.PUDate.strftime("%b. %d %Y") %></td>
+                    <td><%= request.ArrivalTime.strftime("%I:%M %p") %></td>
+                    <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
+                    <td><%= request.status %></td>
+                    <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
+                    <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
+                </tr>
+            </tbody>
+            
+            <% end %>
         <% elsif current_user.user_type=="Manager" %>
         <% @requests.each do |request| %>
         <% @user = User.find_by :id => request.user_id %>
@@ -60,9 +65,15 @@
         </tbody>
         <% end %>
         <% end %>
+        
+        <% end %>
     </table>
+    <p>
     <div class="container">
+        Download: 
         <Button><%= link_to "CSV", requests_path(format: "csv") %></Button>
     </div>
+    </br>
+    </p>
     <%= will_paginate @requests %>
 </div>
