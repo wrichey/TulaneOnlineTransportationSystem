@@ -53,7 +53,7 @@ class RequestsController < ApplicationController
       Request.update(@request, :status => params[:status])
       @request.Email = @email
       Mailer.email(@request).deliver_now
-      redirect_to requests_path
+      redirect_to '/requests'
    end
    
    
