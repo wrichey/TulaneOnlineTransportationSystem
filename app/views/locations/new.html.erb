@@ -63,7 +63,7 @@
         <tr>
           <td><%= f.text_field :name %></td>
           <td><%= f.text_field :address, :id => "address" %><div id = "update" class="btn btn-xs btn-primary">Update</div></td>
-          <td><%= f.select :locationType, [["Pick-Up", "Pick-Up"], ["Drop-Off", "Drop-Off"]],:value => @location.locationType"%></td>
+          <td><%= f.select :locationType, [["Pick-Up", "Pick-Up"], ["Drop-Off", "Drop-Off"]],:value => @location.locationType%></td>
         </tr>
       </tbody>
     </table>
