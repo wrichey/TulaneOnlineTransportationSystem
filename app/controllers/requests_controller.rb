@@ -37,7 +37,7 @@ class RequestsController < ApplicationController
    def delete
        @request = Request.find(params[:id])
        @request.destroy
-       redirect_to requests_path
+       redirect_to '/requests'
    end
    
    def show
