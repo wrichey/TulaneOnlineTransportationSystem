@@ -63,7 +63,7 @@
                 <td><%= @request.ArrivalTime.strftime("%I:%M %p") %></td>
                 <td><%= @request.DepartureTime.strftime("%I:%M %p") %></td>
                 <td><%= @request.status %></td>
-                <td class="tableButton"><%= link_to 'Delete', request_path(@request.id), :method => :DELETE,:class=>:destroy  %></td>
+                <td class="tableButton"><%= link_to 'Delete',@request, request_path(@request.id), :method => :DELETE,:class=>:destroy  %></td>
             </tr>
         </tbody>    
     </table>
