@@ -39,7 +39,7 @@
         <% elsif current_user.user_type=="Manager" %>
         <% @requests.each do |request| %>
         <% @user = User.find_by :id => request.user_id %>
-        <div><%= @true %> </div>
+
         <tbody>
             <tr>
                 <td><%= request.created_at.strftime("%b. %d %Y") %></td>

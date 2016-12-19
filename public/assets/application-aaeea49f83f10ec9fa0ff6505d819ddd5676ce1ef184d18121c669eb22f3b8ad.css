@@ -1,0 +1,29 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+.caption {
+    display: block;
+	width: 100%;
+ 	background: green;
+ 	height: 55px;
+ 	padding-left: 10px;
+ 	margin-top: 10px;
+ 	color: #fff;
+ 	font-size: 20px;
+ 	line-height: 55px;
+ 	text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+ 	box-sizing: border-box;
+}

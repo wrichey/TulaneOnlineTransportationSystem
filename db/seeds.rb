@@ -21,7 +21,6 @@ User.create(provider: 'facebook', uid: '6', name: "Barbara Aladgjcficdge Lisky",
 User.create(provider: 'facebook', uid: '7', name: "Dick Aladehhcbbbbj Schrocksen", email: "tszcztnpzz_1482119531@tfbnw.net", oauth_token: "EAACQCCkoPXUBAMckpAF6YuFzs1ZBZBr8dskhmyqqphb8nR1IC1xq7Tla3fTb9p7L1eMesOtIWeUZCVdOzKoEXXgSUuMZCZAKpDKkIJdwZAt19bCdVvI0YvFhDgjaas3ZCVLNKyoFpQpHdnMCJNOpt7eGeBWCWu8ZCmWjV4EDO3OBS2Oof5K03J48", oauth_expires_at: '2017-02-05 06:25:00.000000', user_type: 'Manager',sID: '1231402186534')
 
 
-
 Request.create(DOLocation:'1111 Milan, New Orleans, LA 70118', PULocation:"31 McAlister Drive", PUDate: "2016-12-30 00:00:00.000000", ArrivalTime: "2016-12-18 12:00:00.000000", DepartureTime: "2016-12-18 15:00:00.000000", user_id: "1", created_at: "2016-12-18 15:44:51.669036", updated_at: "2016-12-18 15:44:51.669036")
 Request.create(DOLocation:'St. Andrews', PULocation:"Ben Weiner", PUDate: "2017-01-30 00:00:00.000000", ArrivalTime: "2016-12-18 12:00:00.000000", DepartureTime: "2016-12-18 15:00:00.000000", user_id: "2", created_at: "2016-12-18 15:44:51.669036", updated_at: "2016-12-18 15:44:51.669036")
 Request.create(DOLocation:'St. Andrews', PULocation:"Ben Weiner", PUDate: "2017-01-30 00:00:00.000000", ArrivalTime: "2016-12-18 12:00:00.000000", DepartureTime: "2016-12-18 15:00:00.000000", user_id: "3", created_at: "2016-12-18 15:44:51.669036", updated_at: "2016-12-18 15:44:51.669036")
