@@ -1,3 +1,30 @@
+<script>
+  function initMap() {
+    
+    var geocoder = new google.maps.Geocoder();
+    
+    var tulane = {lat: 29.9404291, lng: -90.1205452};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: tulane
+    });
+    
+      var address = '<%= @location.address %>';
+      console.log(address);
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+  }
+</script>
+
 <div class = "container"  style="background: rgba(255, 255, 255, 0.9);"> 
     <div class="caption" style="background: green;"><h1>View Individual Location</h1></div>
     <table class="table">
@@ -13,10 +40,14 @@
                 <td><%= @location.name %></td> 
                 <td><%= @location.address %></td>
                 <td><%= @location.locationType %></td>
-                <td class="tableButton"><%= button_to "Delete", location_path(@location.id), :method=>:delete, :class=>:destroy %></td>
+                <td class="tableButton"><%= button_to "Delete", location_path(@location.id), :method=>:delete, class: "btn btn-danger" %></td>
             </tr>
         </tbody>
     </table>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQQujOJXKd7aZNABRMqm8teH30MsyrbGY&callback=initMap" async defer>
+    </script>
+    <div id="map"></div>
 </div>
     
 
