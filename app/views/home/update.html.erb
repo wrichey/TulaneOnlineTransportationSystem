@@ -12,7 +12,7 @@
       <tbody>
       <tr>
         <td><%= f.number_field :sID, :value => @user.sID%></td>
-        <td><%= f.select :user_type, [["Student", "Student"], ["Manager", "Manager"]],:value => @user.user_type %></td>
+        <td><%= f.select :user_type, [["Student", "Student"], ["Manager", "Manager"]],:value => @user.user_type, :id => 'usertype' %></td>
       </tr>
       </tbody>
     </table>
