@@ -20,12 +20,14 @@
         <% if current_user.user_type=="Student" %>
             <% @requests.where(user_id: current_user).each do |request| %>
             <% @user = User.find_by :id => request.user_id %>
+            <% @pulocation = Location.find_by :address => request.PULocation %>
+            <% @dolocation = Location.find_by :address => request.DOLocation %>
             <tbody>
                 <tr>
                     <td><%= request.created_at.strftime("%b. %d %Y") %></td>
                     <td><%= @user.name %></td>
-                    <td><%= request.PULocation %></td>
-                    <td><%= request.DOLocation %></td>
+                    <td><%= @pulocation.name %></td>
+                    <td><%= @dolocation.name %></td>
                     <td><%= request.PUDate.strftime("%b. %d %Y") %></td>
                     <td><%= request.ArrivalTime.strftime("%I:%M %p") %></td>
                     <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
