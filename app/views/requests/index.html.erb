@@ -50,7 +50,7 @@
                 <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
                 <td><%= request.status %></td>
             
-                <td class="tableButton"><%= button_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
+                <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
                 
                     <% if request.status == "Pending"%>
                         <td><%= button_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
