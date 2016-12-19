@@ -13,7 +13,7 @@
                 <td><%= @location.name %></td> 
                 <td><%= @location.address %></td>
                 <td><%= @location.locationType %></td>
-                <td class="tableButton"><%= link_to 'Delete', location_path(@location.id), :method => :DELETE  %></td>
+                <td class="tableButton"><%= button_to "Delete", location_path(@location.id), :method=>:delete, :class=>:destroy %></td>
             </tr>
         </tbody>
     </table>
