@@ -32,8 +32,8 @@
                     <td><%= request.ArrivalTime.strftime("%I:%M %p") %></td>
                     <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
                     <td><%= request.status %></td>
-                    <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :Get, :id => "Show"%></td>
-                    <td class="tableButton"><%= button_to "Delete", request_path(request.id), :method=>:delete, :class=>:destroy %></td>
+                    <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :Get, class: "btn btn-default"%></td>
+                    <td class="tableButton"><%= button_to "Delete", request_path(request.id), :method=>:delete, class: "btn btn-danger" %></td>
                 </tr>
             </tbody>
             
@@ -53,15 +53,15 @@
                 <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
                 <td><%= request.status %></td>
             
-                <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
+                <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , class: "btn btn-default"%></td>
                 
                     <% if request.status == "Pending"%>
-                        <td><%= button_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
-                        <td><%= button_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+                        <td><%= button_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "btn btn-primary" %></td>
+                        <td><%= button_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "btn btn-warning" %></td>
                     <% elsif request.status == "Accepted"%>
-                        <td><%= button_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "tableButton" %></td>
+                        <td><%= button_to 'Deny', request_path(request.id, :status => "Denied"), :method => :POST, class: "btn btn-warning" %></td>
                     <% elsif request.status == "Denied"%>
-                        <td><%= button_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "tableButton" %></td>
+                        <td><%= button_to 'Accept', request_path(request.id, :status => "Accepted"), :method => :POST, class: "btn btn-primary" %></td>
                     <% end %> 
             </tr>
         </tbody>
@@ -72,7 +72,7 @@
     </table>
     <p>
     <div class="container">
-        Download: <Button><%= link_to "CSV", requests_path(format: "csv") %></Button>
+        Download: <Button><%= link_to "CSV", requests_path(format: "csv"), class: "btn btn-defualt " %></Button>
     </div>
     </br>
     </p>

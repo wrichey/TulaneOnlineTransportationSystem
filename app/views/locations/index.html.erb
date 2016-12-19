@@ -17,8 +17,8 @@
                 <td><%= location.name %></td>
                 <td><%= location.address %></td>
                 <td><%= location.locationType %></td>
-                <td class="tableButton"><%= link_to 'Show', location_path(location.id), :method => :GET , :id => "Show"%></td>
-                <td class="tableButton"><%= button_to "Delete", location_path(location.id), :method=>:delete, :class=>:destroy %></td>
+                <td class="tableButton"><%= link_to 'Show', location_path(location.id), :method => :GET , class: "btn btn-default"%></td>
+                <td class="tableButton"><%= button_to "Delete", location_path(location.id), :method=>:delete, class: "btn btn-danger" %></td>
             </tr>
         </tbody>
         <% end %>
