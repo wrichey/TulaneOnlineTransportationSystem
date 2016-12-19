@@ -11,8 +11,10 @@ class Request < ActiveRecord::Base
     validate :not_past_date
 
     def not_past_date
-        if self.PUDate < Date.today.to_s && self.PUDate.blank? == false
-            errors.add(:date, 'not in past')
+        if self.PUDate.blank? == true
+            errors.add(:date, 'date empty')
+        elsif self.PUDate < Date.today.to_s && self.PUDate.blank? == false
+            errors.add(:date, 'date past')
         end
     end
     

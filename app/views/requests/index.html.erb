@@ -30,8 +30,8 @@
                     <td><%= request.ArrivalTime.strftime("%I:%M %p") %></td>
                     <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
                     <td><%= request.status %></td>
-                    <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
-                    <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
+                    <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :Get, :id => "Show"%></td>
+                    <td class="tableButton"><%= button_to 'Delete', request_path(request.id), :method => :Delete, :id => "Destroy"  %></td>
                 </tr>
             </tbody>
             
@@ -39,6 +39,7 @@
         <% elsif current_user.user_type=="Manager" %>
         <% @requests.each do |request| %>
         <% @user = User.find_by :id => request.user_id %>
+
         <tbody>
             <tr>
                 <td><%= request.created_at.strftime("%b. %d %Y") %></td>
@@ -69,8 +70,7 @@
     </table>
     <p>
     <div class="container">
-        Download: 
-        <Button><%= link_to "CSV", requests_path(format: "csv") %></Button>
+        Download: <Button><%= link_to "CSV", requests_path(format: "csv") %></Button>
     </div>
     </br>
     </p>

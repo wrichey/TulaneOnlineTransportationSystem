@@ -1,26 +1,16 @@
 <head>
-  <style>
-    #map {
-      height:400px;
-      width:80%;
-      margin:auto;
-    }
-  </style>
-</head>
-
-<body>
 <script>
   function alertEmpty() {
     alert("You must complete all fields!");
   }
   
   function alertDate() {
-    alert("You cannot select a date in the past!")
+    alert("Please select a valid date in the future!")
   }
 </script>
+
 <script>
   function initMap() {
-    
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     
@@ -54,11 +44,9 @@
     });
   }
 </script>
+</head>
 
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhS2G5ewwonAB3rzpqO4MqxbV4MtsPkTM&callback=initMap">
-</script>
-  
+<body>
 <div class="container" style="background: rgba(255, 255, 255, 0.9); padding-bottom: 10px;">
   <div class="caption" style="background: green;"><h1>New Request</h1></div>
   <%= form_for(@request) do |f| %>
@@ -76,23 +64,29 @@
       <tbody>
         <tr>
           <td><%= f.date_field :PUDate %></td>
-          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| l.address}), {}, :id => "pickup" %></td>
-          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.address}), {}, :id => "dropoff" %></td>
+          <td><%= f.select :PULocation, options_for_select(Location.select{|location| location.locationType == "Pick-Up"}.map{|l| [l.name, l.address]}), {}, :id => "pickup" %></td>
+          <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| [l.name, l.address]}), {}, :id => "dropoff" %></td>
           <td><%= f.time_field :ArrivalTime %></td>
           <td><%= f.time_field :DepartureTime %></td>
         </tr>
       </tbody>
     </table>
+    
     <script>
-      $(document.getElementById('pickup')).on("change", function(){
+        $(document.getElementById('pickup')).on("change", function(){
         console.log(document.getElementById("pickup").value);
       });
     </script>
+    
     <% if @request.errors.include? :date %>
       <%= javascript_tag "alertDate()" %>
     <% elsif @request.errors.any? %>
       <%= javascript_tag "alertEmpty()" %>
     <% end %>
+    
+    <script 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhS2G5ewwonAB3rzpqO4MqxbV4MtsPkTM&callback=initMap" async defer>
+    </script>
     
     <div id="map"></div>
     <div class="actions">
