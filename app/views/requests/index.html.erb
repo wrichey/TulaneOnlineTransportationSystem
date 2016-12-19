@@ -31,7 +31,7 @@
                     <td><%= request.DepartureTime.strftime("%I:%M %p") %></td>
                     <td><%= request.status %></td>
                     <td class="tableButton"><%= link_to 'Show', request_path(request.id), :method => :GET , :id => "Show"%></td>
-                    <td class="tableButton"><%= link_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
+                    <td class="tableButton"><%= button_to 'Delete', request_path(request.id), :method => :DELETE  %></td>
                 </tr>
             </tbody>
             
