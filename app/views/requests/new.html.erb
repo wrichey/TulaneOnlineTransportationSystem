@@ -80,7 +80,6 @@
           <td><%= f.select :DOLocation, options_for_select(Location.select{|location| location.locationType == "Drop-Off"}.map{|l| l.address}), {}, :id => "dropoff" %></td>
           <td><%= f.time_field :ArrivalTime %></td>
           <td><%= f.time_field :DepartureTime %></td>
-          <td><%= f.text_field :Email, :value => @email %></td>
         </tr>
       </tbody>
     </table>

@@ -24,7 +24,7 @@ class RequestsController < ApplicationController
     def create 
         @request = current_user.requests.new(request_params) 
         if @request.save 
-            @email = current_user.email
+            @request.Email = current_user.email
             @request.save
             flash[:notice] = "Request submitted!"
             redirect_to '/requests' 
@@ -51,7 +51,6 @@ class RequestsController < ApplicationController
    def status
       @request = Request.find(params[:id])
       Request.update(@request, :status => params[:status])
-      @request.Email = @email
       Mailer.email(@request).deliver_now
       redirect_to '/requests'
    end
